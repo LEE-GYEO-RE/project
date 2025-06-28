@@ -12,11 +12,11 @@
         <div id="wrapWrite">
             <div id="WriteHeader">
                 <div class="titleArea">
-                    <input id="title" type="text" placeholder="제목을 입력해주세요." />
+                    <input id="titleInput" type="text" placeholder="제목을 입력해주세요." />
                 </div>
                 <div class="titleArea">
-                    <input id="movieTitle" type="text" placeholder="영화 제목을 입력해주세요." />
-                    <select id="isSpoiler">
+                    <input id="movieTitleInput" type="text" placeholder="영화 제목을 입력해주세요." />
+                    <select id="isSpoilerInput">
                         <option value="" disabled selected>스포일러 여부</option>
                         <option value="spoO">스포일러 O</option>
                         <option value="spoX">스포일러 X</option>
@@ -24,11 +24,11 @@
                 </div>
             </div>
             <div id="WriteMain">
-                <textarea id="desc">내용을 입력해주세요.</textarea>
+                <textarea id="descInput" placeholder="내용을 입력해주세요."></textarea>
             </div>
             <div id="WriteFooter">
-                <input id="file" type="file" accept="img/*"/>
-                <div id="rating">
+                <input id="fileInput" type="file" accept="img/*"/>
+                <div id="ratingInput">
                     별점 :
                     <label><input name="rating" type="radio"/>1점</label>
                     <label><input name="rating" type="radio"/>2점</label>
@@ -37,7 +37,7 @@
                     <label><input name="rating" type="radio"/>5점</label>
                 </div>
                 <button class="Btn" onclick="back()">뒤로가기</button> 
-                <button class="Btn" onclick="write()">작성</button> 
+                <button class="Btn" onclick="postWrite()">작성</button> 
             </div>
         </div>
     </div>

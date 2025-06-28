@@ -18,16 +18,16 @@
     justify-content: space-between;
     width: 100%; 
     padding: 10px 10px;}
-#title{width: 100% ;}
+#titleInput{width: 100% ;}
 
-#movieTitle{width: 70%;}
+#movieTitleInput{width: 70%;}
 
 #WriteMain{
     display: flex;
     justify-content: center;
     width: 100%; height: 500px;
 }
-#WriteMain #desc{ width: 100%; height: 95%;
+#WriteMain #descInput{ width: 100%; height: 95%;
     
 }
 #WriteFooter{
@@ -35,8 +35,8 @@
     justify-content: center;
     width: 100%; height: 50px;
 }
-#rating{
-}
+/* #rating{
+} */
 .Btn{
     width: 100px; height: 30px;
     margin: 0px 15px 0px 15px;

@@ -1,0 +1,61 @@
+/* ======================= 기본 설정 ======================== */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+} /* 여백 제거 설정 */
+
+a {
+    color: black;
+    text-decoration: none;
+} /* 기본값 제거 */
+
+li {
+    list-style-type: none;
+} /* 글머리 제거 */
+
+/* ======================= 메인 (게시글 목록) ======================== */
+#main_wrap {
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+} /* 메인 범위 설정 및 정렬 */
+
+table, th, td {
+    border: 3px solid black;
+    border-collapse: collapse;
+    height: 50px;
+} /* 테이블 테두리 설정 */
+
+#main_table {
+    display: flex;
+    justify-content: center;
+} /* 테이블 정렬 */
+
+.list_table {
+    width: 1000px;
+    text-align: center;
+} /* 테이블 크기 설정 및 글씨 정렬 */
+
+.list_num {
+    width: 60px;
+} /* 테이블 '번호' */
+
+.list_title {
+    width: 500px;
+} /* 테이블 '제목' */
+
+.list_movieTitle {
+    width: 200px;
+} /* 테이블 '영화 제목' */
+
+.list_rating {
+    width: 120px;
+} /* 테이블 '별점' */
+
+.list_date {
+    width: 120px;
+} /* 테이블 '작성일자' */

@@ -1,0 +1,26 @@
+/* ======================= 기본 설정 ======================== */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+} /* 여백 제거 설정 */
+
+/* ======================= 푸터 ======================== */
+#footer {
+    background-color: #727373;
+} /* 푸터 배경색 */
+
+#footer_wrap {
+    width: 1280px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+} /* 푸터 범위 설정 및 정렬 */
+
+#footer_wrap span {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+} /* 푸터 글씨 색상 및 크기 조정 */

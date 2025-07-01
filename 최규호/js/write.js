@@ -4,7 +4,7 @@
 // 
 
 
-let posts =[
+let postList =[
   { pid:1, title:'투슬리스 귀여움이 말이 안된다....', movieTitle:'드래곤길 들이기' , desc:'너무 슬프고 너무너무 재밋어요 보는내내 울었는데 저만 운것같긴해요 그래도 원작보다 훨씬 재밌고 연출이 너무 좋고 CG인데 티 진짜 안나고 제 인생영화에요 꼬 보세요!!!', file:'https://search.pstatic.net/common?type=o&size=176x264&quality=85&direct=true&src=https%3A%2F%2Fs.pstatic.net%2Fmovie.phinf%2F20250514_116%2F17471898410878x4Ud_JPEG%2Fmovie_image.jpg%3Ftype%3Dw640_2', isSpoiler: false , rating:"5", date:"2025-04-01" },
   { pid:2, title: '스토리에 푹 빠졌다 (2)', movieTitle: '기생충', desc: '감정선이 잘 잡혀 있어서 눈물을 참을 수 없었어요. (리뷰 2)', file: 'https://example.com/image2.jpg', isSpoiler: false, rating:"4", date:"2025-04-02" },
  ];
@@ -37,13 +37,13 @@ function postWrite(){
 
     const obj = { title , movieTitle , isSpoiler , desc , file: file?URL.createObjectURL(file):"https://placehold.co/100x100" , rating ,date }
 
-    let posts = localStorage.getItem('posts');
-    if( posts == null){ posts = []}
-    else{ posts = JSON.parse( posts);}
+    let postList = localStorage.getItem('postList');
+    if( postList == null){ postList = []}
+    else{ postList = JSON.parse( postList);}
     
 
-    obj.pid = posts.length == 0 ? 1 : posts[posts.length-1].pid+1
-    posts.push( obj );
+    obj.pid = postList.length == 0 ? 1 : postList[postList.length-1].pid+1
+    postList.push( obj );
 
 
     // 작성 후 리셋 
@@ -53,7 +53,7 @@ function postWrite(){
     descInput.value='';
     document.querySelectorAll('input[name="rating"]').forEach(input => input.checked = false); // 라디오 체크박스 리셋
 
-    localStorage.setItem('posts' , JSON.stringify(posts))
+    localStorage.setItem('postList' , JSON.stringify(postList))
 
     alert('게시물 작성 성공')
     // 글쓰기 성공시 게시물목록(list) 페이지 로 이동

@@ -1,0 +1,75 @@
+#wrapWrite{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 1280px; height: 100%;
+    margin: auto;
+    padding: 20px 20px;
+}
+
+#WriteHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; height: 100px;
+}
+.titleArea{
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    margin: 10px 0px 10px 0px;}
+#titleInput{width: 100% ;}
+
+#movieTitleInput{width: 70%;}
+
+#WriteMain{
+    display: flex;
+    justify-content: center;
+    width: 100%; height: 500px;
+    margin: 10px 0px 10px 0px;
+}
+#WriteMain #descInput{ width: 100%; height: 95%;
+    
+}
+#WriteFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; height: 50px;
+}
+/* #rating{
+} */
+.btn{
+    width: 100px; height: 40px;
+    margin: 0px 15px 0px 15px;
+}
+
+/* 별모양 CSS */
+.star-rating {
+  direction: rtl; /* 오른쪽부터 별 배치 */
+  font-size: 2rem;
+  user-select: none;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  padding: 0 5px;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}
+
+#starFont{
+    text-align: center;
+    font-size: 18px;
+}

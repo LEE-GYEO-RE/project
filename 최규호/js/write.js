@@ -17,21 +17,30 @@ function postWrite(){
     const isSpoilerInput = document.querySelector('#isSpoilerInput');
     const descInput = document.querySelector('#descInput');
     const fileInput = document.querySelector('#fileInput');
-    const ratingInput = document.querySelector('#ratingInput');
+    const checkedRatingInput = document.querySelector('input[name="rating"]:checked');
 
     const title=titleInput.value;
     const movieTitle = movieTitleInput.value;
     const isSpoiler = isSpoilerInput.value;
     const desc = descInput.value;
-    const rating = ratingInput.value;
+
+    const rating = checkedRatingInput ? checkedRatingInput.value : '';  // 별점이 value값이면 value값 , value값이 없으면 ''점
 
     const file = fileInput.files[0];
 
-    const obj = { title , movieTitle , isSpoiler , desc , file , rating }
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth()+1;
+    month = month < 9 ? `0${month}` : month ; // 만약에 월이 한자리수 이면 앞에 '0' 붙인다.
+    let day = new Date().getDate();      // 현재 일 반환 함수 
+        day = day < 9 ? `0${day}` : day;    // 만약에 일 이 한자리수 이면 앞에 '0' 붙인다.
+    let date = `${year}-${month}-${day}`;
+
+    const obj = { title , movieTitle , isSpoiler , desc , file , rating ,date }
 
     let posts = localStorage.getItem('posts');
     if( posts == null){ posts = []}
     else{ posts = JSON.parse( posts);}
+    
 
     obj.pid = posts.length == 0 ? 1 : posts[posts.length-1].pid+1
     posts.push( obj );
@@ -47,7 +56,6 @@ function postWrite(){
     localStorage.setItem('posts' , JSON.stringify(posts))
 
     alert('게시물 작성 성공')
-    
     // 글 리스트목록으로 이동함수()
    
 }

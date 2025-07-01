@@ -37,7 +37,7 @@ function postWrite(){
 
     const obj = { title , movieTitle , isSpoiler , desc , file , rating ,date }
 
-    let posts = localStorage.getItem('posts');
+    let posts = localStorage.getItem('postList');
     if( posts == null){ posts = []}
     else{ posts = JSON.parse( posts);}
     
@@ -53,7 +53,7 @@ function postWrite(){
     descInput.value='';
     document.querySelectorAll('input[name="rating"]').forEach(input => input.checked = false); // 라디오 체크박스 리셋
 
-    localStorage.setItem('posts' , JSON.stringify(posts))
+    localStorage.setItem('postList' , JSON.stringify(posts))
 
     alert('게시물 작성 성공')
     // 글쓰기 성공시 게시물목록(list) 페이지 로 이동

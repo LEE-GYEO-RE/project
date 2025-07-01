@@ -35,7 +35,7 @@ function postWrite(){
         day = day < 9 ? `0${day}` : day;    // 만약에 일 이 한자리수 이면 앞에 '0' 붙인다.
     let date = `${year}-${month}-${day}`;
 
-    const obj = { title , movieTitle , isSpoiler , desc , file , rating ,date }
+    const obj = { title , movieTitle , isSpoiler , desc , file: file?URL.createObjectURL(file):"https://placehold.co/100x100" , rating ,date }
 
     let posts = localStorage.getItem('posts');
     if( posts == null){ posts = []}
@@ -57,6 +57,6 @@ function postWrite(){
 
     alert('게시물 작성 성공')
     // 글쓰기 성공시 게시물목록(list) 페이지 로 이동
-   
+
 }
 

@@ -7,25 +7,40 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='signin.css'>
     
+
 </head>
 <body>
     
          <!-- 관례적으로 (웹)홈페이지 헤더/본문.푸터-->
          <div id="wrap"> <!-- 홈페이지 모든 요소를 감싼 마크업 -->
             <div class="header">
+                <div id="header_logo">
+                    <a href="list.html">무비존</a>
+                </div>
                 <!-- login / membership -->
                 <div id="main">
-                    <a href="#"><img id="cgv" src="../membership/img_log_membership/로그인_페이지_상단_이미지.webp"/></a><br/>
-                    <input id="uid" type="text" placeholder="ID를 입력해주세요"/><br/>
-                    <input id="pwd" type="password" placeholder="비밀번호를 입력해주세요"/><br/>
-                    <button onclick="member()">회원가입</button>
+                    <a href="#"><img id="cgv2" src=""/></a><br/>
+                    <h1>회원가입</h1>
+                    <input id="uid" type="text" placeholder="생성할 ID를 입력해주세요"/><br/>
+                    <input id="pwd" type="password" placeholder="생성할 비밀번호를 입력해주세요"/><br/>
+                    <button id="gopageBtn" onclick="gopage()">회원가입완료</button>
+                    
                     <ul>
-                        <li><h2>회원이신가요?<a href="login.html">로그인</a>하기</h2></li>
+                        <li>
+                            <a href="login.html">회원이신가요? 로그인하기</a>
+                        </li>
                     </ul>
                 </div>
             </div>               
+        </div>
 
-
-
+    <script src='signin.js'></script>
+      <!-- ========= body 끝부분에 삽입할 것 ========== -->
+    <div id="footer"> <!-- 푸터 -->
+        <div id="footer_wrap"> <!-- 푸터 wrap -->
+            <span>이겨레 | 이원국 | 김재영 | 최규호</span>
+        </div> <!-- 푸터 wrap 끝 -->
+    </div> <!-- 푸터 끝 -->
+    <!-- =========================================== -->
 </body>
 </html>

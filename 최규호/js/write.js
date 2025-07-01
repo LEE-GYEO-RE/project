@@ -56,7 +56,7 @@ function postWrite(){
     localStorage.setItem('posts' , JSON.stringify(posts))
 
     alert('게시물 작성 성공')
-    // 글 리스트목록으로 이동함수()
+    // 글쓰기 성공시 게시물목록(list) 페이지 로 이동
    
 }
 

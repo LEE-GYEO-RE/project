@@ -44,3 +44,32 @@
     margin: 0px 15px 0px 15px;
 }
 
+/* 별모양 CSS */
+.star-rating {
+  direction: rtl; /* 오른쪽부터 별 배치 */
+  font-size: 2rem;
+  user-select: none;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  padding: 0 5px;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}
+
+#starFont{
+    text-align: center;
+    font-size: 18px;
+}

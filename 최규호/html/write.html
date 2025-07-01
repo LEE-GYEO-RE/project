@@ -31,14 +31,34 @@
             </div>
             <div id="WriteFooter">
                 <input id="fileInput" type="file" accept="img/*"/>
-                <div id="ratingInput">
+                <!-- <div id="ratingInput">
                     별점을 선택해주세요.</br>  
                     <label><input name="rating" type="radio" value="1"/>1점</label>
                     <label><input name="rating" type="radio" value="2"/>2점</label>
                     <label><input name="rating" type="radio" value="3"/>3점</label>
                     <label><input name="rating" type="radio" value="4"/>4점</label>
                     <label><input name="rating" type="radio" value="5"/>5점</label>
+                </div> -->
+                
+                <div class="star-rating">
+                        <div id="starFont">.별점을 선택해주세요<br/></div>
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label for="star5">★</label>
+
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4">★</label>
+
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3">★</label>
+
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2">★</label>
+
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1">★</label>
                 </div>
+
+
                
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">

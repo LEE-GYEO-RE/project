@@ -17,14 +17,14 @@ function postWrite(){
     const isSpoilerInput = document.querySelector('#isSpoilerInput');
     const descInput = document.querySelector('#descInput');
     const fileInput = document.querySelector('#fileInput');
-    const checkedRatingInput = document.querySelector('input[name="rating"]:checked');
+    const ratingInput = document.querySelector('input[name="rating"]:checked');
 
     const title=titleInput.value;
     const movieTitle = movieTitleInput.value;
     const isSpoiler = isSpoilerInput.value;
     const desc = descInput.value;
 
-    const rating = checkedRatingInput ? checkedRatingInput.value : '';  // 별점이 value값이면 value값 , value값이 없으면 ''점
+    const rating = ratingInput ? ratingInput.value : '';  // 별점이 value값이면 value값 , value값이 없으면 ''점
 
     const file = fileInput.files[0];
 

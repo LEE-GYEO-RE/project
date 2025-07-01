@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='회원가입.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='signin.css'>
     
 </head>
 <body>
@@ -16,17 +16,16 @@
                 <!-- login / membership -->
                 <div id="main">
                     <a href="#"><img id="cgv" src="../membership/img_log_membership/로그인_페이지_상단_이미지.webp"/></a><br/>
-                    <input id="uid" type="uid" placeholder="ID를 입력해주세요"/><br/>
-                    <input id="pwd" type="pwd" placeholder="비밀번호를 입력해주세요"/><br/>
-                    <button id="loginBtn">회원가입</button>
+                    <input id="uid" type="text" placeholder="ID를 입력해주세요"/><br/>
+                    <input id="pwd" type="password" placeholder="비밀번호를 입력해주세요"/><br/>
+                    <button onclick="member()">회원가입</button>
                     <ul>
-                        <li><h2>회원이신가요?<a href="로그인.html">로그인</a>하기</h2></li>
+                        <li><h2>회원이신가요?<a href="login.html">로그인</a>하기</h2></li>
                     </ul>
                 </div>
             </div>               
 
 
 
-            <script src='회원가입.js'></script>
 </body>
 </html>

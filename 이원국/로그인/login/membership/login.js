@@ -1,41 +1,43 @@
 function logins() {
-  // 1. 입력한 ID와 비밀번호 가져오기
-  const id = document.getElementById("uid").value;
-  const pwd = document.getElementById("pwd").value;
+  //1. 입력 마크업 객체 가져오기
+  const uidInput = document.querySelector('#uidInput');
+  const pwdInput = document.querySelector('#pwdInput');
+  //const isAdminInput = document.querySelector('#isAdminInput');
+  const isAdminInput = document.getElementById("isAdminInput").checked;
+  
+  
+  //2. 입력 마크업 객체내 입력값 가져오기
+  const uid = uidInput.value;
+  const pwd = pwdInput.value;
+  const isAdmin = isAdminInput.value;
 
-  // 2. 입력하지 않은 경우 경고
-  if (!id || !pwd) {
-    alert("ID와 비밀번호를 모두 입력해주세요.");
+  //3. 객체화
+  const obj = { uid, pwd, isAdmin };
+
+  // 4. localStorage 에서 배열 가져오기.
+  let loginList = localStorage.getItem('loginList');
+  if (loginList == null) { loginList = [] }
+  else { loginList = JSON.parse(loginList); }
+
+  // 5. 객체를 배열에 저장
+  obj.uno = loginList.length == 0 ? 1 : loginList[loginList.length - 1].uno + 1; //자동번호
+  loginList.push(obj);
+
+  // 6. localStorage 에 배열 저장하기. 
+  localStorage.setItem('loginList', JSON.stringify(loginList));
+
+  // 7. 기타 등등
+
+  if (!uid || !pwd) {
+    alert('아이디와 비밀번호를 모두 입력해주세요.');
     return;
   }
 
-  // 3. 저장된 사용자 목록 불러오기 (문자열 형태)
-  let usersData = localStorage.getItem("users");
+  console.log(loginList);
+  alert('로그인 성공!!!');
+  location.href = 'list.html' //로그인 성공시 목록(list) 페이지로 이동
 
-  // 4. 문자열을 배열로 바꾸기 (없으면 빈 배열로 시작)
-  let users;
-  if (usersData) {
-    users = JSON.parse(usersData);
-  } else {
-    users = [];
-  }
+} // func end 
 
-  // 5. 사용자 목록에서 일치하는 ID와 비밀번호 찾기
-  for (let i = 0; i < users.length; i++) {
-    const user = users[i];
 
-    if (user.uid == id && user.pwd == pwd) {
-      alert(user.id + "님, 로그인 성공!");
-      window.location.href = "list.html";
-      return;
-    }
 
-    if (user.uid === id && user.pwd !== pwd) {
-      alert("비밀번호가 틀렸습니다.");
-      return;
-    }
-  }
-
-  // 6. 일치하는 ID 자체가 없을 경우
-  alert("존재하지 않는 ID입니다.");
-}

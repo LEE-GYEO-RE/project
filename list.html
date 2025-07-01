@@ -51,13 +51,16 @@
                 </table>
             </div> <!-- 페이지 게시글 목록 끝-->
             <div id="main_functions"> <!-- 페이지 게시글 목록 하단 (페이지 번호, 글쓰기 버튼)-->
-                <div id="main_pages"> <!-- 페이지 번호 -->
-                    <div>< O O O O O ></div>
-                </div>
-                <div id="main_buttons"> <!-- 글쓰기, 삭제 버튼 -->
-                    <button>[ 삭제 ]</button>
-                    <button onclick="viewList()">[ 글쓰기 ]</button>
-                </div>
+                <span>
+                    <button onclick="createList()">[ 생성 (debug) ]</button>
+                </span>
+                <span id="main_pages"> <!-- 페이지 번호 -->
+                    <span style="font-size: 20px; font-weight: bold;">< O O O O O ></span>
+                </span>
+                <span id="main_buttons"> <!-- 글쓰기, 삭제 버튼 -->
+                    <button onclick="deleteList()">[ 삭제 ]</button>
+                    <button><a href="write.html">[ 글쓰기 ]</a></button>
+                </span>
             </div> <!-- 페이지 게시글 목록 끝 -->
         </div> <!-- 페이지 wrap 끝 -->
     </div> <!-- 페이지 main 끝 -->

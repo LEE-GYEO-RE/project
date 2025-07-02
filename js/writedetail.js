@@ -3,17 +3,17 @@
 
 // localStorage 배열 가져오는 함수
 function getPosts() {
-    let posts = localStorage.getItem('posts')
-    if (posts == null) {
-        posts = []
+    let postList = localStorage.getItem('postList')
+    if (postList == null) {
+        postList = []
     } else {
-        posts = JSON.parse(posts)
+        postList = JSON.parse(postList)
     }
 }
 
 // localStorage 배열 저장하는 함수
 function setPosts() {
-    localStorage.setItem('posts', JSON.stringify(posts))
+    localStorage.setItem('postList', JSON.stringify(postList))
 }
 
 
@@ -25,12 +25,12 @@ function contentDelete() {
 
     getPosts();                                                 // localStorage 배열 가져오기
 
-    for (let i = 0; i < posts.length; i++) {                  // 배열 내 선택된 게시물 조회
-        const obj = posts.length[i];
+    for (let i = 0; i < postList.length; i++) {                  // 배열 내 선택된 게시물 조회
+        const obj = postList.length[i];
         if (obj.pid == selectPid) {
             const confirm = prompt('비밀번호 입력 : ');          // 존재하면 비번 받고, 일치하면 삭제
             if (confirm == obj.pwd) {
-                posts.splice(i, 1)
+                postList.splice(i, 1)
                 setPosts();
                 alert('게시물이 삭제되었습니다.')
                 location.href = 'list.html';                   // 삭제 성공시 list.html 로 이동
@@ -49,8 +49,8 @@ function postsUpdateView() {
 
     getPosts();
 
-    for( let i = 0 ; i < posts.length ; i++){
-        const obj = posts[i];
+    for( let i = 0 ; i < postList.length ; i++){
+        const obj = postList[i];
         if( obj.pid == selectPid ){
             const confirm = prompt('비밀번호 입력 : ')
             if( confirm == obj.pwd ){

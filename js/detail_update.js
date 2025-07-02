@@ -3,17 +3,17 @@
 
 // localStorage 배열 가져오는 함수
 function getPosts() {
-    let posts = localStorage.getItem('posts')
-    if (posts == null) {
-        posts = []
+    let postList = localStorage.getItem('postList')
+    if (postList == null) {
+        postList = []
     } else {
-        posts = JSON.parse(posts)
+        postList = JSON.parse(postList)
     }
 }
 
 // localStorage 배열 저장하는 함수
 function setPosts() {
-    localStorage.setItem('posts', JSON.stringify(posts))
+    localStorage.setItem('postList', JSON.stringify(postList))
 }
 
 
@@ -25,8 +25,8 @@ function getpost(){
 
     getPosts();
 
-    for( let i = 0 ; i < posts.length ; i++ ){
-        const obj = posts[i];
+    for( let i = 0 ; i < postList.length ; i++ ){
+        const obj = postList[i];
         if( obj.pid == selectPid ){
             document.querySelector('#titleInput').value = obj.titleInput
             document.querySelector('#movieTitleInput').value = obj.movieTitleInput
@@ -45,8 +45,8 @@ function detailUpdate(){
     const selectPid = url.get('pid') 
     getPosts();
     
-    for( let i = 0 ; i < posts.length ; i++){
-        const obj = posts[i];
+    for( let i = 0 ; i < postList.length ; i++){
+        const obj = postList[i];
         if( obj.pid == selectPid ){
             obj.titleInput = document.querySelector('#titleInput').value;
             obj.movieTitleInput = document.querySelector('#movieTitleInput').value;

@@ -21,7 +21,8 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px auto;
+    margin: 0px auto;
+    margin-top: 100px;
 } /* 메인 범위 설정 및 정렬 */
 
 table, th, td {
@@ -59,3 +60,20 @@ table, th, td {
 .list_date {
     width: 120px;
 } /* 테이블 '작성일자' */
+
+/* ======================= 메인 (기능 목록) ======================== */
+button {
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+} /* 버튼 기본 디자인 제거 */
+
+#main_functions {
+    width: 1280px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+} /* 페이지 번호 및 버튼 위치 조정 */
+

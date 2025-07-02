@@ -7,19 +7,29 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/signin.css'>
-
+    <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/footer.css'>
 
 </head>
 
 <body>
-
-    <!-- 관례적으로 (웹)홈페이지 헤더/본문.푸터-->
-    <div id="wrap"> <!-- 홈페이지 모든 요소를 감싼 마크업 -->
-        <div class="header">
+    <!-- ========= body 상단에 삽입할 것 ========== -->
+    <div id="header"> <!-- 헤더 -->
+        <div id="header_wrap"> <!-- 헤더 wrap -->
             <div id="header_logo">
-                <a href="/list.html">무비존</a>
+                <a href="list.html">무비존</a>
             </div>
-            <!-- login / membership -->
+            <div id="header_content">
+                <ul id="header_top">
+                    <li><a href="signin.html">회원가입</a></li>
+                    <li><a href="login.html">로그인</a></li>
+                </ul>
+                <ul id="header_bottom">
+                    <li>로그인해주세요</li>
+                </ul>
+            </div> <!-- 헤더 wrap 끝 -->
+        </div> <!-- 헤더 끝 -->
+    </div>
             <div id="main">
                 <a href="#"><img id="cgv2" src="" /></a><br />
                 <h1>회원가입</h1>

@@ -16,6 +16,26 @@ function setPosts() {
     localStorage.setItem('postList', JSON.stringify(postList))
 }
 
+// 조회 함수
+function detailBoard(){
+    const url = new URL.createObjectURL(location.search);     // url 경로 가져오기
+    const selectPid = url.get('pid')
+    getPosts();
+    
+    for( i = 0 ; i < postList.length ; i++){
+        const obj = postList.length[i];
+        if( obj.pid == selectPid ){
+            document.querySelector('.title').innerHTML = obj.title
+            document.querySelector('.review-text').innerHTML = obj.review-text
+            document.querySelector('.info-a').innerHTML = obj.info-a
+            document.querySelector('.info-b').innerHTML
+            하는중
+        }
+        
+    }
+
+}
+
 
 // (1) 삭제 함수
 function contentDelete() {

@@ -37,7 +37,7 @@ function userpage() {
 
   console.log(userList);
   alert('회원가입완료!!!');
-  location.href = 'list.html' // 회원가입 성공시 목록(list) 페이지로 이동
+  location.href = '/list.html' // 회원가입 성공시 목록(list) 페이지로 이동
 
 
 } // func end 

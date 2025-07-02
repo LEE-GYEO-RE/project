@@ -34,7 +34,12 @@ function userpage() {
   if (userList == null) { userList = [] }
   else { userList = JSON.parse(userList); } // 기존유저 목록 불러오기
 
-  //관리자 권한으로 회원가입 또는 일반 사용자로 회원가입
+
+  // 아이디 중복 검사와 관리자 권한으로 회원가입 또는 일반 사용자로 회원가입
+  if (userList.find(user => user.uid === uid)) {
+    alert('이미 존재하는 아이디입니다.');
+    return;
+  }
 
   if (isAdmin) {
     const Master = userList.find(u => u.uid == uid && u.pwd == pwd && u.isAdmin == true);

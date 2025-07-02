@@ -30,13 +30,13 @@ function logins() {
   }
 
   // 4. localStorage 에서 배열 가져오기.
-  let loginList = localStorage.getItem('loginList');
-  if (loginList == null) { loginList = [] }
-  else { loginList = JSON.parse(loginList); } // 기존유저 목록 불러오기
+  let userList = localStorage.getItem('userList');
+  if (userList == null) { userList = [] }
+  else { userList = JSON.parse(userList); } // 기존유저 목록 불러오기
 
   //5.관리자 권한으로 로그인 또는 일반 사용자로 로그인
   //로그인할 사용자 찾기
-  const Master = loginList.find(u => u.uid == uid && u.pwd == pwd);
+  const Master = userList.find(u => u.uid == uid && u.pwd == pwd);
   if (!Master) {
     alert('아이디 또는 비밀번호가 올바르지 않습니다.');
     return;

@@ -26,9 +26,11 @@ a {
     width: 100%; 
     margin: 10px 0px 10px 0px;}
     
-#titleInput{width: 100% ;}
+#titleInput{width: 100% ;
+border: 3px solid black;}
 
-#movieTitleInput{width: 70%;}
+#movieTitleInput{width: 70%;
+border: 3px solid black;}
 
 #WriteMain{
     border: 3px solid black;

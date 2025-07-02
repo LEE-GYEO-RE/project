@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/writedetail.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/footer.css'>
+</head>
+
+<body>
+
+    <div id="header"> <!-- 헤더 -->
+        <div id="header_wrap"> <!-- 헤더 wrap -->
+            <div id="header_logo">
+                <a href="list.html">무비존</a>
+            </div>
+            <div id="header_content">
+                <ul id="header_top">
+                    <li><a href="signin.html">회원가입</a></li>
+                    <li><a href="login.html">로그인</a></li>
+                </ul>
+                <ul id="header_bottom">
+                    <li>로그인해주세요</li>
+                </ul>
+            </div> <!-- 헤더 wrap 끝 -->
+        </div> <!-- 헤더 끝 -->
+    </div>
+
+    <!-- 게시물 상세 내용 페이지 -->
+
+    <div id="wrap">
+        <div class="image-box">이미지</div>
+        <div class="content-box">
+            <div class="title">&lt;영화 제목&gt;, 정말 재밌습니다</div>
+            <div class="review-text">
+                딱히 기대하던 작품은 아니었는데, 막상 보니까 생각보다 재밌었습니다.
+                긴장감도 있고, 주인공의 서사도 마음에 들었어요.
+                영화를 좋아하시는 분이라면 한 번쯤은 봐도 좋다고 생각합니다.
+            </div>
+            <div class="info">작성자 : User1</div>
+            <div class="info">별점 5.0 / 5.0</div>
+            <div class="stars">★★★★★</div>
+            <div class="actions">
+                <button onclick="postsUpdateView()"><a href="detail_update.html">[ 수정 ]</a> </button>
+                <button onclick="contentDelete()"><a href="#">[ 삭제 ]</a> </button>
+            </div>
+            <a href="list.html" class="back">[ 뒤로가기 ]</a>
+        </div>
+    </div>
+
+    <div id="footer"> <!-- 푸터 -->
+        <div id="footer_wrap"> <!-- 푸터 wrap -->
+            <span>이겨레 | 이원국 | 김재영 | 최규호</span>
+        </div> <!-- 푸터 wrap 끝 -->
+    </div> <!-- 푸터 끝 -->
+
+    <script src='js/writedetail.js'></script>
+</body>
+
+</html>

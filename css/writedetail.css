@@ -1,0 +1,88 @@
+/* ======================= 기본 설정 ======================== */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* 기본값 제거 */
+
+/* wrap 영역 */
+#wrap {
+  display: flex;
+  margin: 0 auto;
+  width: 1280px;
+  height: 100%;
+  padding: 20px;
+  background-color: white;
+}
+
+/* 이미지 박스 영역 */
+.image-box {
+  width: 250px;
+  height: 300px;
+  background-color: gray;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+/* 컨텐츠 박스 영역 */
+.content-box {
+  flex: 1;
+}
+
+/* 게시글 제목 영역 */
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 게시글 내용 영역 */
+.review-text {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* 게시글 작성자 , 별점 영역 */
+.info {
+  margin-bottom: 10px;
+}
+
+/* 수정 , 삭제 버튼 영역 */
+.actions {
+  margin-bottom: 15px;
+  justify-content: right;
+}
+
+button {
+  background-color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.actions a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* 뒤로가기 영역 */
+.back {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}

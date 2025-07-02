@@ -4,13 +4,13 @@
 
 
 /*확인용*/
-
+/*
 *{
     border: 1px solid red;}
     #header{ height: 150;}
     #main{height: 400px;}
     #footer{height: 100px;}
-
+*/
 
 /* 공통 부문 */
 
@@ -18,6 +18,7 @@ a{ /*링크 기본값 제거 */
     text-decoration: none; /* 밑줄제거 */
     color: black; /* 글꼴 색상 */
 }
+
 
 /* ul 또는 ol에서 글머리 제거 */
 li{ list-style-type: none;}

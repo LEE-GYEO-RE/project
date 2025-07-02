@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='utf-8'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/writedetail.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/content.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/footer.css'>
 </head>
@@ -38,14 +38,18 @@
                 긴장감도 있고, 주인공의 서사도 마음에 들었어요.
                 영화를 좋아하시는 분이라면 한 번쯤은 봐도 좋다고 생각합니다.
             </div>
-            <div class="info-a">작성자 : User1</div>
-            <div class="info-b">별점 5.0 / 5.0</div>
-            <div class="stars">★★★★★</div>
-            <div class="actions">
-                <button onclick="postsUpdateView()"><a href="detail_update.html">[ 수정 ]</a> </button>
-                <button onclick="contentDelete()"><a href="#">[ 삭제 ]</a> </button>
+            <div class="info-user">작성자 : User1</div>
+            <div class="rate_btn">
+                <div class="info-rate">별점 5.0 / 5.0</div>
+                <div class="btn">
+                    <button onclick="postsUpdateView()">[ 수정 ] </button>
+                    <button onclick="contentDelete()"><a href="#">[ 삭제 ]</a> </button>
+                </div>
             </div>
-            <a href="list.html" class="back">[ 뒤로가기 ]</a>
+            <div class="rating_back">
+                <div class="rating">★★★★★</div>
+                <a href="list.html" class="back">[ 뒤로가기 ]</a>
+            </div>
         </div>
     </div>
 
@@ -55,7 +59,7 @@
         </div> <!-- 푸터 wrap 끝 -->
     </div> <!-- 푸터 끝 -->
 
-    <script src='js/writedetail.js'></script>
+    <script src='js/content.js'></script>
 </body>
 
 </html>

@@ -28,12 +28,12 @@ function getpost(){
     for( let i = 0 ; i < postList.length ; i++ ){
         const obj = postList[i];
         if( obj.pid == selectPid ){
-            document.querySelector('#titleInput').value = obj.titleInput
-            document.querySelector('#movieTitleInput').value = obj.movieTitleInput
-            document.querySelector('#descInput').value = obj.descInput
-            document.querySelector('#inSpoilerInput').value = obj.isSpoilerInput
-            document.querySelector('#fileInput').value = obj.fileInput
-            document.querySelector('input[name = "rating"]:checked').value = obj.ratingInput
+            document.querySelector('#titleInput').value = obj.title
+            document.querySelector('#movieTitleInput').value = obj.movieTitle
+            document.querySelector('#descInput').value = obj.desc
+            document.querySelector('#inSpoilerInput').value = obj.isSpoiler
+            document.querySelector('#fileInput').value = obj.file
+            document.querySelector('input[name = "rating"]:checked').value = obj.rating
     
         } // if end
     } // for end
@@ -41,22 +41,22 @@ function getpost(){
 
 // (2) 수정 함수
 function detailUpdate(){
-    const url = new URL.createObjectURL(location.search);     // url 경로 가져오기
-    const selectPid = url.get('pid') 
+// 여기도 필요할까?    const url = new URL.createObjectURL(location.search);     // url 경로 가져오기
+//                    const selectPid = url.get('pid') 
     getPosts();
     
     for( let i = 0 ; i < postList.length ; i++){
         const obj = postList[i];
         if( obj.pid == selectPid ){
-            obj.titleInput = document.querySelector('#titleInput').value;
-            obj.movieTitleInput = document.querySelector('#movieTitleInput').value;
-            obj.descInput = document.querySelector('#descInput').value;
-            obj.isSpoilerInput = document.querySelector('#inSpoilerInput').value;
-            obj.fileInput = document.querySelector('#fileInput').value;
-            obj.ratingInput = document.querySelector('input[name = "rating"]:checked').value;
+            obj.title = document.querySelector('#titleInput').value;
+            obj.movieTitle = document.querySelector('#movieTitleInput').value;
+            obj.desc = document.querySelector('#descInput').value;
+            obj.isSpoiler = document.querySelector('#inSpoilerInput').value;
+            obj.file = document.querySelector('#fileInput').value;
+            obj.rating = document.querySelector('input[name = "rating"]:checked').value;
             setPosts();
             alert('수정완료');
-            location.href = `writedetail.html?no=${selectPid}`
+            location.href = `content.html?no=${selectPid}`
         }
     }
 }
@@ -64,6 +64,6 @@ function detailUpdate(){
 function back(){
     if(!confirm("뒤로 가겠습니까?")){
     }else{
-        location.href = 'writedetail.html';
+        location.href = 'content.html';
     }
 }

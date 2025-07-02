@@ -60,3 +60,10 @@ function detailUpdate(){
         }
     }
 }
+
+function back(){
+    if(!confirm("뒤로 가겠습니까?")){
+    }else{
+        location.href = 'writedetail.html';
+    }
+}

@@ -6,6 +6,11 @@ if (!localStorage.getItem("loginList")) {
   ];
   localStorage.setItem("loginList", JSON.stringify(defaultUsers));
 }
+function 이동함수(){
+    // JS에서 페이지 요청하는 방법 : location.href="경로?변수명=값&변수명=값";
+    location.href = 'list.html?sort=1&code=8';
+} //func end
+
 
 
 function logins() {
@@ -14,7 +19,6 @@ function logins() {
   const pwdInput = document.querySelector('#pwdInput'); // 비밀번호 입력 요소 선택
   //const isAdminInput = document.querySelector('#isAdminInput');
   const isAdminInput = document.getElementById("isAdminInput"); // 관리자 권한 체크박스 선택
-
 
   //2. 입력 마크업 객체내 입력값 가져오기
   const uid = uidInput.value; // 아이디 값
@@ -51,10 +55,9 @@ function logins() {
   const role = Master.isAdmin ? "관리자" : "일반 사용자"; //변수에 삼항연산자 넣기 참, 거짓
   alert((Master.name || Master.uid) + "님, " + role + "로 로그인 성공!");
 
-  // 8. 페이지 이동
-  location.href = '/list.html';
+  localStorage.setItem("uidId", Master.uid); // 로그인한 사용자 ID 저장
+  // 8. 로그인 저장 및 성공으로 페이지 이동
+  location.href = `/list.html?pages=1&uid=${Master.uid}`;
 
-}// func end 
-
-
+}
 

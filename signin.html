@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>회원가입</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/signin.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/header.css'>
@@ -23,9 +23,10 @@
                 <ul id="header_top">
                     <li><a href="signin.html">회원가입</a></li>
                     <li><a href="login.html">로그인</a></li>
+                    <li><a href="#" id="logoutBtn" style="display: none;">로그아웃</a></li>
                 </ul>
                 <ul id="header_bottom">
-                    <li>로그인해주세요</li>
+                     <li id="userWelcome">회원가입 해주세요</li>
                 </ul>
             </div> <!-- 헤더 wrap 끝 -->
         </div> <!-- 헤더 끝 -->
@@ -48,6 +49,40 @@
     </div>
 
     <script src='/js/signin.js'></script>
+
+
+<script>
+window.onload = function () {
+    const uid = localStorage.getItem("uidId"); // 로그인한 사용자 ID
+    const loginLink = document.querySelector('a[href="login.html"]');
+    const signupLink = document.querySelector('a[href="signin.html"]');
+    const logoutBtn = document.getElementById("logoutBtn");
+    const userWelcome = document.getElementById("userWelcome");
+
+    if (uid) {
+        // 로그인 상태
+        if (loginLink) loginLink.style.display = "none";
+        if (signupLink) signupLink.style.display = "none";
+        logoutBtn.style.display = "inline";
+        userWelcome.textContent = uid + "님 환영합니다!";
+    } else {
+        // 비로그인 상태
+        if (loginLink) loginLink.style.display = "inline";
+        if (signupLink) signupLink.style.display = "inline";
+        logoutBtn.style.display = "none";
+        userWelcome.textContent = "로그인 해주세요";
+    }
+
+    // 로그아웃 버튼 동작
+    logoutBtn.onclick = function () {
+        localStorage.removeItem("uidId"); // 로그인 정보 삭제
+        alert("로그아웃 되었습니다.");
+        location.href = "/login.html"; // 로그인 페이지로 이동
+    };
+};
+</script>
+
+
     <!-- ========= body 끝부분에 삽입할 것 ========== -->
     <div id="footer"> <!-- 푸터 -->
         <div id="footer_wrap"> <!-- 푸터 wrap -->
@@ -55,6 +90,8 @@
         </div> <!-- 푸터 wrap 끝 -->
     </div> <!-- 푸터 끝 -->
     <!-- =========================================== -->
+
+
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 // 초기 사용자 등록 및 관리자 조건부 등록
-  if (!localStorage.getItem("userList")) {
-    const defaultUsers = [
-      { uid: "admin", pwd: "1234", name: "관리자", isAdmin: true, uno: 1 },
-      { uid: "user", pwd: "1234", name: "일반회원", isAdmin: false, uno: 2 }
-    ];
-    localStorage.setItem("userList", JSON.stringify(defaultUsers));
-  }
+if (!localStorage.getItem("userList")) {
+  const defaultUsers = [
+    { uid: "admin", pwd: "1234", name: "관리자", isAdmin: true, uno: 1 },
+    { uid: "user", pwd: "1234", name: "일반회원", isAdmin: false, uno: 2 }
+  ];
+  localStorage.setItem("userList", JSON.stringify(defaultUsers));
+}
+
 
 function userpage() {
   //1. 입력 마크업 객체 가져오기
@@ -41,16 +42,22 @@ function userpage() {
     return;
   }
 
-  if (isAdmin) {
-    const Master = userList.find(u => u.uid == uid && u.pwd == pwd && u.isAdmin == true);
-    if (!Master) {
-      alert("입력한 계정은 관리자 권한이 없습니다.");
-      return;
-    }
-    alert(`${uid}님, 관리자 회원가입 성공!`);
-  } else {
-    alert("일반 사용자로 회원가입합니다.");
-  }
+
+
+  // 현재 로그인한 사용자
+  const currentUid = localStorage.getItem("uidId");
+  const currentUser = userList.find(u => u.uid === currentUid);
+
+  // 관리자 체크 시, 현재 로그인한 사용자가 관리자여야만 가능
+ if (isAdmin && (!currentUser || !currentUser.isAdmin)) {
+  alert("관리자 권한이 있는 사용자만 관리자 계정을 만들 수 있습니다.");
+  return;
+} else if (isAdmin) {
+  alert(`${uid}님, 관리자 회원가입 성공!!`);
+} else {
+  alert("일반 사용자로 회원가입 성공!!");
+}
+
 
   // 5. 객체를 배열에 저장
   obj.uno = userList.length == 0 ? 1 : userList[userList.length - 1].uno + 1; //자동번호
@@ -61,7 +68,7 @@ function userpage() {
 
   // 7. 기타 등등 회원가입 완료 처리
   //console.log(userList);
-  alert('회원가입완료!!!');
+  //alert('회원가입완료!!!');
   location.href = '/login.html' // 회원가입 성공시 목록(list) 페이지로 이동
 
 }// func end 

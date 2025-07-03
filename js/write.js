@@ -63,14 +63,15 @@ function postWrite(){
 
     localStorage.setItem('postList' , JSON.stringify(postList))
 
+    location.href='list.html'
     alert('게시물 작성 성공')
 
 }
 
 
-function back(){
-    if(!confirm("뒤로 가겠습니까?")){
-    }else{
-        location.href = 'list.html';
-    }
-}
+// function back(){
+//     if(!confirm("뒤로 가겠습니까?")){
+//     }else{
+//         location.href = 'list.html';
+//     }
+// }

@@ -1,10 +1,10 @@
 // 초기 사용자 등록 및 관리자 조건부 등록
-if (!localStorage.getItem("loginList")) {
+if (!localStorage.getItem("userList")) {
   const defaultUsers = [
     { uid: "admin", pwd: "1234", name: "관리자", isAdmin: true, uno: 1 },
     { uid: "user", pwd: "1234", name: "일반회원", isAdmin: false, uno: 2 }
   ];
-  localStorage.setItem("loginList", JSON.stringify(defaultUsers));
+  localStorage.setItem("userList", JSON.stringify(defaultUsers));
 };
 
 
@@ -28,8 +28,6 @@ function logins() {
     return;
   }
 
-
-
   // 4. localStorage 에서 배열 가져오기.
   let userList = localStorage.getItem('userList');
   if (userList == null) { userList = [] }
@@ -49,10 +47,10 @@ function logins() {
   }
 
   //관리자 중복 생성 방지
-    if (isAdmin && userList.some(user => user.isAdmin == true)) {
-        alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
-        return;
-    }
+  if (isAdmin && userList.some(user => user.isAdmin == true)) {
+    alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
+    return;
+  }
 
 
   //6.

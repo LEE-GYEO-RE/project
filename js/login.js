@@ -5,7 +5,7 @@ if (!localStorage.getItem("loginList")) {
     { uid: "user", pwd: "1234", name: "일반회원", isAdmin: false, uno: 2 }
   ];
   localStorage.setItem("loginList", JSON.stringify(defaultUsers));
-}
+};
 
 
 function logins() {
@@ -14,7 +14,6 @@ function logins() {
   const pwdInput = document.querySelector('#pwdInput'); // 비밀번호 입력 요소 선택
   //const isAdminInput = document.querySelector('#isAdminInput');
   const isAdminInput = document.getElementById("isAdminInput"); // 관리자 권한 체크박스 선택
-
 
   //2. 입력 마크업 객체내 입력값 가져오기
   const uid = uidInput.value; // 아이디 값
@@ -29,14 +28,16 @@ function logins() {
     return;
   }
 
+
+
   // 4. localStorage 에서 배열 가져오기.
-  let loginList = localStorage.getItem('loginList');
-  if (loginList == null) { loginList = [] }
-  else { loginList = JSON.parse(loginList); } // 기존유저 목록 불러오기
+  let userList = localStorage.getItem('userList');
+  if (userList == null) { userList = [] }
+  else { userList = JSON.parse(userList); } // 기존유저 목록 불러오기
 
   //5.관리자 권한으로 로그인 또는 일반 사용자로 로그인
   //로그인할 사용자 찾기
-  const Master = loginList.find(u => u.uid == uid && u.pwd == pwd);
+  const Master = userList.find(u => u.uid == uid && u.pwd == pwd);
   if (!Master) {
     alert('아이디 또는 비밀번호가 올바르지 않습니다.');
     return;
@@ -47,14 +48,16 @@ function logins() {
     return;
   }
 
+
+
+  
   //6.
   const role = Master.isAdmin ? "관리자" : "일반 사용자"; //변수에 삼항연산자 넣기 참, 거짓
   alert((Master.name || Master.uid) + "님, " + role + "로 로그인 성공!");
 
-  // 8. 페이지 이동
-  location.href = '/list.html';
+  localStorage.setItem("uidId", Master.uid); // 로그인한 사용자 ID 저장
+  // 8. 로그인 저장 및 성공으로 페이지 이동
+  location.href = `/list.html?pages=1&uid=${Master.uid}`;
 
-}// func end 
-
-
+}
 

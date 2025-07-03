@@ -20,18 +20,19 @@ function postWrite(){
     const titleInput = document.querySelector('#titleInput');
     const movieTitleInput = document.querySelector('#movieTitleInput');
     const isSpoilerInput = document.querySelector('#isSpoilerInput');
-    const descInput = document.querySelector('#descInput');
-    const fileInput = document.querySelector('#fileInput');
     const ratingInput = document.querySelector('input[name="rating"]:checked');
 
     const title=titleInput.value;
     const movieTitle = movieTitleInput.value;
     const isSpoiler = isSpoilerInput.value;
-    const desc = descInput.value;
+
+    
+
+
+    const desc = $('#summernote').summernote('code');
 
     const rating = ratingInput ? ratingInput.value : '';  // 별점이 value값이면 value값 , value값이 없으면 ''점
 
-    const file = fileInput.files[0];
 
     let year = new Date().getFullYear();
     let month = new Date().getMonth()+1;
@@ -40,7 +41,7 @@ function postWrite(){
         day = day < 9 ? `0${day}` : day;    // 만약에 일 이 한자리수 이면 앞에 '0' 붙인다.
     let date = `${year}-${month}-${day}`;
 
-    const obj = { title , movieTitle , isSpoiler , desc , file: file?URL.createObjectURL(file):"https://placehold.co/100x100" , rating ,date }
+    const obj = { title , movieTitle , isSpoiler , desc , rating ,date }
 
     let postList = localStorage.getItem('postList');
     if( postList == null){ postList = []}
@@ -55,7 +56,9 @@ function postWrite(){
     titleInput.value='';
     movieTitleInput.value='';
     isSpoilerInput.value='';
-    descInput.value='';
+
+    $('#summernote').summernote('reset'); // textarea리셋
+
     document.querySelectorAll('input[name="rating"]').forEach(input => input.checked = false); // 라디오 체크박스 리셋
 
     localStorage.setItem('postList' , JSON.stringify(postList))

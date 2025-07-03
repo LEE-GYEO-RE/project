@@ -8,11 +8,11 @@ function getPosts() {
         postList = []
     } else {
         postList = JSON.parse(postList)
-    }
+    }return postList;
 }
 
 // localStorage 배열 저장하는 함수
-function setPosts() {
+function setPosts(postList) {
     localStorage.setItem('postList', JSON.stringify(postList))
 }
 
@@ -20,10 +20,10 @@ function setPosts() {
 // (1) 수정시 기존 데이터 불러오는 함수
 getpost();
 function getpost(){
-    const url = new URL.createObjectURL(location.search);     // url 경로 가져오기
+    const url = new URLSearchParams(location.search);     // url 경로 가져오기
     const selectPid = url.get('pid')                            // 선택한 pid 가져오기
 
-    getPosts();
+    let postList = getPosts();
 
     for( let i = 0 ; i < postList.length ; i++ ){
         const obj = postList[i];
@@ -41,9 +41,9 @@ function getpost(){
 
 // (2) 수정 함수
 function detailUpdate(){
-// 여기도 필요할까?    const url = new URL.createObjectURL(location.search);     // url 경로 가져오기
-//                    const selectPid = url.get('pid') 
-    getPosts();
+    const url = new URLSearchParams(location.search);     // url 경로 가져오기
+    const selectPid = url.get('pid') 
+    let postList = getPosts();
     
     for( let i = 0 ; i < postList.length ; i++){
         const obj = postList[i];

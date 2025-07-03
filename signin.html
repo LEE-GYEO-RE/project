@@ -53,7 +53,7 @@
     <script>
         window.onload = function () {
             const uid = localStorage.getItem("uidId");
-            const isAdmin = localStorage.getItem("isAdmin") === "true"; //문자열 비교 필요
+            const isAdmin = localStorage.getItem("isAdmin") == "true"; //문자열 비교 필요
 
             const loginLink = document.querySelector('a[href="login.html"]');
             const signupLink = document.querySelector('a[href="signin.html"]');

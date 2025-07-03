@@ -35,31 +35,27 @@ function logins() {
 
   //5.관리자 권한으로 로그인 또는 일반 사용자로 로그인
   //로그인할 사용자 찾기
-  const Master = userList.find(u => u.uid == uid && u.pwd == pwd);
-  if (!Master) {
-    alert('아이디 또는 비밀번호가 올바르지 않습니다.');
-    return;
-  }
-  // 관리자 체크박스가 체크되어 있는데, 해당 유저가 관리자가 아닌 경우
-  if (isAdmin && !Master.isAdmin) {
-    alert('해당 계정은 관리자 권한이 없습니다.');
-    return;
-  }
+ const foundUser = userList.find(u => u.uid == uid);
+if (!foundUser) {
+  alert("존재하지 않는 아이디입니다.");
+  return;
+}
+if (foundUser.pwd !== pwd) {
+  alert("비밀번호가 일치하지 않습니다.");
+  return;
+}
 
-  //관리자 중복 생성 방지
-  if (isAdmin && userList.some(user => user.isAdmin == true)) {
-    alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
-    return;
-  }
-
-
+if (foundUser.isAdmin && !isAdmin) {
+  alert("관리자 계정입니다. 관리자 로그인을 원하시면 체크박스를 선택하세요.");
+  return;
+}
   //6.
-  const role = Master.isAdmin ? "관리자" : "일반 사용자"; //변수에 삼항연산자 넣기 참, 거짓
-  alert((Master.name || Master.uid) + "님, " + role + "로 로그인 성공!");
+  const role = foundUser.isAdmin ? "관리자" : "일반 사용자"; //변수에 삼항연산자 넣기 참, 거짓
+  alert((foundUser.name || foundUser.uid) + "님, " + role + "로 로그인 성공!");
 
   localStorage.setItem("uidId", Master.uid); // 로그인한 사용자 ID 저장
   // 8. 로그인 저장 및 성공으로 페이지 이동
-  location.href = `/list.html?pages=1&uid=${Master.uid}`;
+  location.href = `/list.html?pages=1&uid=${foundUser.uid}`;
 
 }
 

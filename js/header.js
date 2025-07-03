@@ -1,3 +1,4 @@
+// 공통 JS (헤더 로그인 구현)
 isLogin();
 function isLogin() {
     const header_content = document.querySelector("#header_content");
@@ -9,7 +10,7 @@ function isLogin() {
         for (let i=0; i<userList[i].length; i++) {
             if (userList[i].uno == currentUser) {
                 html += `<ul id="header_top">
-                            <li><a href="list.html">로그아웃</a></li>
+                            <li><a href="list.html?pages=1">로그아웃</a></li>
                         </ul>
                         <ul id="header_bottom">
                             <li>${userList[i].uid}님, 환영합니다</li>
@@ -21,11 +22,7 @@ function isLogin() {
     header_content.innerHTML = html;
 } // 로그인 여부 확인, 로그인 시 html 변경 (로그아웃, uid 포함으로)
 
-function isAdmin() {
-
-} // 관리자 여부 체크, 관리자일 시 html 변경 (삭제 버튼 추가)
-
-function getuserList() {
+function getUserList() {
     let userList = localStorage.getItem('userList');
     if (userList == null) {
         userList = [];

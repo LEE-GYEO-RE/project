@@ -77,3 +77,11 @@ button {
     margin-top: 20px;
 } /* 페이지 번호 및 버튼 위치 조정 */
 
+.page_numbers {
+    border: 1px solid black;
+    border-radius: 100px;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+} /* 페이지 번호 버튼 설정 */

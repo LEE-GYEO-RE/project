@@ -5,12 +5,7 @@ if (!localStorage.getItem("loginList")) {
     { uid: "user", pwd: "1234", name: "일반회원", isAdmin: false, uno: 2 }
   ];
   localStorage.setItem("loginList", JSON.stringify(defaultUsers));
-}
-function 이동함수(){
-    // JS에서 페이지 요청하는 방법 : location.href="경로?변수명=값&변수명=값";
-    location.href = 'list.html?sort=1&code=8';
-} //func end
-
+};
 
 
 function logins() {
@@ -33,6 +28,8 @@ function logins() {
     return;
   }
 
+
+
   // 4. localStorage 에서 배열 가져오기.
   let userList = localStorage.getItem('userList');
   if (userList == null) { userList = [] }
@@ -51,6 +48,9 @@ function logins() {
     return;
   }
 
+
+
+  
   //6.
   const role = Master.isAdmin ? "관리자" : "일반 사용자"; //변수에 삼항연산자 넣기 참, 거짓
   alert((Master.name || Master.uid) + "님, " + role + "로 로그인 성공!");

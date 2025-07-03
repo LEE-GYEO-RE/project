@@ -49,40 +49,17 @@
                 </div>
             </div>
             <div id="WriteMain"> <!-- descInput -> summernote  -->
-                <textarea id="summernote" placeholder="내용을 입력해주세요."></textarea>
+                <textarea id="summernote" ></textarea>
             </div>
             <div id="WriteFooter">
-                <input id="fileInput" type="file" accept="img/*"/>
-                <!-- <div id="ratingInput">
+                <div id="ratingInput">
                     별점을 선택해주세요.</br>  
                     <label><input name="rating" type="radio" value="1"/>1점</label>
                     <label><input name="rating" type="radio" value="2"/>2점</label>
                     <label><input name="rating" type="radio" value="3"/>3점</label>
                     <label><input name="rating" type="radio" value="4"/>4점</label>
                     <label><input name="rating" type="radio" value="5"/>5점</label>
-                </div> -->
-                
-                <div class="star-rating">
-                        <div id="starFont">별점을 선택해주세요.<br/></div>
-                        <input type="radio" name="rating" value="1" />
-                        <label for="star5">1점</label>
-
-                        <input type="radio" id="star4" name="rating" value="2" />
-                        <label for="star4">2점</label>
-
-                        <input type="radio" id="star3" name="rating" value="3" />
-                        <label for="star3">3점</label>
-
-                        <input type="radio" id="star2" name="rating" value="4" />
-                        <label for="star2">4점</label>
-
-                        <input type="radio" id="star1" name="rating" value="5" />
-                        <label for="star1">5점</label>
                 </div>
-
-
-               
-
                 <button class="btn" onclick="back()"><a href="#">[ 뒤로가기 ]</a></button>
                 <button class="btn" onclick="postWrite()"><a href="list.html">[ 작성 ]</a></button> 
             </div>
@@ -96,16 +73,19 @@
         <!-- =========================================== -->
 
         <script>
-            $(document).ready(function() {
-                $('#summernote').summernote();
+            $(document).ready(function(){
+                
+                $('#summernote').summernote({
+                    placeholder: "내용을 입력해주세요",
+                    width : 1234,
+                    height: 400, // set editor height
+                    minHeight: null, // set minimum height of editor
+                    maxHeight: null, // set maximum height of editor
+                    focus: true // set focus to editable area after initializing summernote
+                    });
             });
-            $('#summernote').summernote({
-                width : 1234,
-                height: 400, // set editor height
-                minHeight: null, // set minimum height of editor
-                maxHeight: null, // set maximum height of editor
-                focus: true // set focus to editable area after initializing summernote
-            });
+          
+
         </script>
         <script src='js/header.js'></script>
         <script src='js/write.js'></script>

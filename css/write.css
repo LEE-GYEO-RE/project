@@ -39,7 +39,7 @@ border: 3px solid black;}
     width: 100%; height: 500px;
     margin: 10px 0px 10px 0px;
 }
-#WriteMain #descInput{ width: 100%; height: 95%;
+#WriteMain #summernote{ width: 100%; height: 95%;
     
 }
 #WriteFooter{
@@ -56,3 +56,5 @@ border: 3px solid black;}
     font-weight: bold;
     cursor: pointer;
 } 
+
+

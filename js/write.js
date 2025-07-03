@@ -20,14 +20,14 @@ function postWrite(){
     const titleInput = document.querySelector('#titleInput');
     const movieTitleInput = document.querySelector('#movieTitleInput');
     const isSpoilerInput = document.querySelector('#isSpoilerInput');
-    const descInput = document.querySelector('#descInput');
+    const summernote = document.querySelector('#summernote');
     const fileInput = document.querySelector('#fileInput');
     const ratingInput = document.querySelector('input[name="rating"]:checked');
 
     const title=titleInput.value;
     const movieTitle = movieTitleInput.value;
     const isSpoiler = isSpoilerInput.value;
-    const desc = descInput.value;
+    const desc = summernote.value;
 
     const rating = ratingInput ? ratingInput.value : '';  // 별점이 value값이면 value값 , value값이 없으면 ''점
 
@@ -55,7 +55,7 @@ function postWrite(){
     titleInput.value='';
     movieTitleInput.value='';
     isSpoilerInput.value='';
-    descInput.value='';
+    summernote.value='';
     document.querySelectorAll('input[name="rating"]').forEach(input => input.checked = false); // 라디오 체크박스 리셋
 
     localStorage.setItem('postList' , JSON.stringify(postList))

@@ -71,7 +71,7 @@ a {
 
 
 /* 수정 , 삭제 버튼 영역 */
-.rating_btn{
+.rate_btn{
   display: flex;
   justify-content: space-between;
   margin-top: 40px;

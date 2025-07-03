@@ -53,7 +53,7 @@ if (foundUser.isAdmin && !isAdmin) {
   const role = foundUser.isAdmin ? "관리자" : "일반 사용자"; //변수에 삼항연산자 넣기 참, 거짓
   alert((foundUser.name || foundUser.uid) + "님, " + role + "로 로그인 성공!");
 
-  localStorage.setItem("uidId", Master.uid); // 로그인한 사용자 ID 저장
+  localStorage.setItem("uidId", foundUser.uid); // 로그인한 사용자 ID 저장
   // 8. 로그인 저장 및 성공으로 페이지 이동
   location.href = `/list.html?pages=1&uid=${foundUser.uid}`;
 

@@ -62,11 +62,6 @@ function userpage() {
 
 
 
-
-
-
-
-
 // 5. 객체를 배열에 저장
 obj.uno = userList.length == 0 ? 1 : userList[userList.length - 1].uno + 1; //자동번호
 userList.push(obj);

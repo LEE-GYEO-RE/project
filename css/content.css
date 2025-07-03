@@ -23,6 +23,7 @@ a {
   background-color: white;
   align-items: center;
   border: 3px solid black;
+  justify-content: flex-end;
 }
 
 /* 이미지 박스 영역 */
@@ -51,17 +52,19 @@ a {
 
 /* 게시글 내용 영역 */
 .content-box{
-  width: 810px;
-  height: 500px;
+  width: 90%;
+  height: 90%;
 }
 .review-text {
   text-align: left;
   line-height: 1.6;
-  margin-bottom: 100px;
+  /* margin-bottom: 50px; */
   font-size: 25px;
   font-weight: bolder;
-  max-width: 850px;
-  max-height: 200px;
+  /* max-width: 850px;
+  max-height: 200px; */
+  width: 90%;
+  height: 90%;
 }
 
 /* 게시글 작성자 , 별점 영역 */
@@ -80,7 +83,7 @@ a {
 .rate_btn{
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 .actions {
   margin-bottom: 15px;

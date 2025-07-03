@@ -2,22 +2,31 @@ viewList();
 function viewList() {
     console.log('viewList start');
     const table_content = document.querySelector(".table_content");
+    const main_pages = document.querySelector('#main_pages');
+    let currentPage = new URLSearchParams(location.search).get('pages');
     let postList = getPostList();
     let html = '';
+    let pages = `<span id="list_page><a href='#'>< </a>`;
 
     if (postList != null) {
         for (let i=0; i<postList.length; i++) {
         html += `<tr>
                     <td class="list_num">${postList[i].pid}</td>
-                    <td class="list_title">${postList[i].title}</td>
+                    <td class="list_title"><a href="writedetail.html?pid=${postList[i].pid}">${postList[i].title}</a></td>
                     <td class="list_movieTitle">${postList[i].movieTitle}</td>
                     <td class="list_rating">${makeRating(postList[i].rating)}</td>
                     <td class="list_date">${postList[i].date}</td>
                 </tr>`
         }
     }
+
+    for (let i=1; i<=(postList.length/10); i++) {
+        pages += `<a class="page_numbers" href='list.html?pages=${i}'>${i}</a>`;
+    }
+    pages += `</span>`;
     
     table_content.innerHTML = html;
+    main_pages.innerHTML = pages;
     console.log('viewList end');
 } // 게시글 목록 출력
 

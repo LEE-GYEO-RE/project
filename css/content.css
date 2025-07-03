@@ -23,11 +23,11 @@ a {
   background-color: white;
   align-items: center;
   border: 3px solid black;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 /* 이미지 박스 영역 */
-.image-box {
+/* .image-box {
   width: 380px;
   height: 500px;
   background-color: gray;
@@ -38,22 +38,29 @@ a {
   font-size: 18px;
   font-weight: bold;
   margin-right: 30px;
-}
+} */
 
 /* 컨텐츠 박스 영역 */
 
 
 /* 게시글 제목 영역 */
+.title-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .title {
   font-size: 45px;
   font-weight: bold;
-  margin-bottom: 50px;
+
 }
 
 /* 게시글 내용 영역 */
 .content-box{
   width: 90%;
   height: 90%;
+  
 }
 .review-text {
   text-align: left;
@@ -63,15 +70,37 @@ a {
   font-weight: bolder;
   /* max-width: 850px;
   max-height: 200px; */
-  width: 90%;
-  height: 90%;
+  display: flex;
+  text-align: left;       /* 택스트 가로 정렬 */
+  overflow: hidden;         /* 넘치는 택스트 숨김 처리 */
+  word-break: break-all;    /* 단어 중간 줄바꿈 처리 */
+}
+
+/* 부트스트랩 p 태그 영역*/
+p{
+  max-width: 800px;
+  max-height: 400px;
+  box-sizing: border-box;
+  padding-top: 10px;
+
+}
+/* 부트스트랩 img 영역 */
+p > img{
+  width: 100%;
+  height: 100%;           /* 이미지 비율 유지 */
+  overflow: hidden;       /* 넘치는 이미지 방지 */
 }
 
 /* 게시글 작성자 , 별점 영역 */
 .info-user{
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 30px;
+}
+
+.rating{
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 .info-rate{
   font-weight: bold;
@@ -82,7 +111,8 @@ a {
 /* 수정 , 삭제 버튼 영역 */
 .rate_btn{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  margin-top: 10px;
   /* margin-top: 30px; */
 }
 .actions {
@@ -108,7 +138,7 @@ button {
 /* 뒤로가기 영역 */
 .rating_back{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-top: 10px;
 }

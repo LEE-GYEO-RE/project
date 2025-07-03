@@ -32,20 +32,20 @@
 
     <div id="wrap">
         <div class="content-box">
-            <div class="title">&lt;영화 제목&gt;, 정말 재밌습니다</div>
-            <div class="rating">★★★★★</div>
-            <div class="info-rate">별점 5.0 / 5.0</div>
-            
+            <div class="title-box">
+                <div class="title">&lt;영화 제목&gt;, 정말 재밌습니다</div>
+                <div class="info-user">작성자 : User1</div>
+            </div>
+            <div class="rating">  ★★★★★  </div>
             <div class="review-text">
                 딱히 기대하던 작품은 아니었는데, 막상 보니까 생각보다 재밌었습니다.
                 긴장감도 있고, 주인공의 서사도 마음에 들었어요.
                 영화를 좋아하시는 분이라면 한 번쯤은 봐도 좋다고 생각합니다.
             </div>
-            <div class="info-user">작성자 : User1</div>
             <div class="rate_btn">
                 <div class="btn">
                     <button onclick="postsUpdateView()">[ 수정 ] </button>
-                    <button onclick="contentDelete()"><a href="#">[ 삭제 ]</a> </button>
+                    <button onclick="contentDelete()">[ 삭제 ]</button>
                 </div>
             </div>
             <div class="rating_back">
@@ -62,35 +62,35 @@
 
 
     <script>
-window.onload = function () {
-    const uid = localStorage.getItem("uidId"); // 로그인한 사용자 ID
-    const loginLink = document.querySelector('a[href="login.html"]');
-    const signupLink = document.querySelector('a[href="signin.html"]');
-    const logoutBtn = document.getElementById("logoutBtn");
-    const userWelcome = document.getElementById("userWelcome");
+        window.onload = function () {
+            const uid = localStorage.getItem("uidId"); // 로그인한 사용자 ID
+            const loginLink = document.querySelector('a[href="login.html"]');
+            const signupLink = document.querySelector('a[href="signin.html"]');
+            const logoutBtn = document.getElementById("logoutBtn");
+            const userWelcome = document.getElementById("userWelcome");
 
-    if (uid) {
-        // 로그인 상태
-        if (loginLink) loginLink.style.display = "none";
-        if (signupLink) signupLink.style.display = "none";
-        logoutBtn.style.display = "inline";
-        userWelcome.textContent = uid + "님 환영합니다!";
-    } else {
-        // 비로그인 상태
-        if (loginLink) loginLink.style.display = "inline";
-        if (signupLink) signupLink.style.display = "inline";
-        logoutBtn.style.display = "none";
-        userWelcome.textContent = "로그인 해주세요";
-    }
+            if (uid) {
+                // 로그인 상태
+                if (loginLink) loginLink.style.display = "none";
+                if (signupLink) signupLink.style.display = "none";
+                logoutBtn.style.display = "inline";
+                userWelcome.textContent = uid + "님 환영합니다!";
+            } else {
+                // 비로그인 상태
+                if (loginLink) loginLink.style.display = "inline";
+                if (signupLink) signupLink.style.display = "inline";
+                logoutBtn.style.display = "none";
+                userWelcome.textContent = "로그인 해주세요";
+            }
 
-    // 로그아웃 버튼 동작
-    logoutBtn.onclick = function () {
-        localStorage.removeItem("uidId"); // 로그인 정보 삭제
-        alert("로그아웃 되었습니다.");
-        location.href = "/login.html"; // 로그인 페이지로 이동
-    };
-};
-</script>
+            // 로그아웃 버튼 동작
+            logoutBtn.onclick = function () {
+                localStorage.removeItem("uidId"); // 로그인 정보 삭제
+                alert("로그아웃 되었습니다.");
+                location.href = "/login.html"; // 로그인 페이지로 이동
+            };
+        };
+    </script>
 
 
     <script src='js/content.js'></script>

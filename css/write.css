@@ -27,13 +27,29 @@ a {
     margin: 10px 0px 10px 0px;}
     
 #titleInput{width: 100% ;
-border: 3px solid black;}
+border: 3px solid black;
+padding: 5px;}
 
-#movieTitleInput{width: 70%;
-border: 3px solid black;}
+#movieTitleInput{width: 50%;
+border: 3px solid black;
+padding: 5px;}
+
+#checkFont{
+    font-weight: bold;
+    font-size: 20px;
+}
+#ratingInput label{
+    font-size: 20px;
+}
 
 #isSpoilerInput{
     border: 3px solid black;
+    padding: 5px;
+}
+
+#isSpoilerInput option{
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #WriteMain{

@@ -26,61 +26,64 @@
                     <li><a href="#" id="logoutBtn" style="display: none;">로그아웃</a></li>
                 </ul>
                 <ul id="header_bottom">
-                     <li id="userWelcome">회원가입 해주세요</li>
+                    <li id="userWelcome">회원가입 해주세요</li>
                 </ul>
             </div> <!-- 헤더 wrap 끝 -->
         </div> <!-- 헤더 끝 -->
     </div>
-            <div id="main">
-                <a href="#"><img id="cgv2" src="" /></a><br />
-                <h1>회원가입</h1>
-                <input id="uidInput" type="text" placeholder="생성할 ID를 입력해주세요" /><br />
-                <input id="pwdInput" type="password" placeholder="생성할 비밀번호를 입력해주세요" /><br />
-                <label><input id="isAdminInput" type="checkbox"/>관리자 권한으로 회원가입</label><br />
-                <button id="userpageBtn" onclick="userpage()">회원가입완료</button>
+    <div id="main">
+        <a href="#"><img id="cgv2" src="" /></a><br />
+        <h1>회원가입</h1>
+        <input id="uidInput" type="text" placeholder="생성할 ID를 입력해주세요" /><br />
+        <input id="pwdInput" type="password" placeholder="생성할 비밀번호를 입력해주세요" /><br />
+        <label><input id="isAdminInput" type="checkbox" />관리자 권한으로 회원가입</label><br />
+        <button id="userpageBtn" onclick="userpage()">회원가입완료</button>
 
-                <ul>
-                    <li>
-                        <a href="/login.html">회원이신가요?<span style="color: blue; margin-left: 5px;">로그인</span>하기</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <ul>
+            <li>
+                <a href="/login.html">회원이신가요?<span style="color: blue; margin-left: 5px;">로그인</span>하기</a>
+            </li>
+        </ul>
     </div>
+
 
     <script src='/js/signin.js'></script>
 
 
-<script>
-window.onload = function () {
-    const uid = localStorage.getItem("uidId"); // 로그인한 사용자 ID
-    const loginLink = document.querySelector('a[href="login.html"]');
-    const signupLink = document.querySelector('a[href="signin.html"]');
-    const logoutBtn = document.getElementById("logoutBtn");
-    const userWelcome = document.getElementById("userWelcome");
+    <script>
+        window.onload = function () {
+            const uid = localStorage.getItem("uidId");
+            const isAdmin = localStorage.getItem("isAdmin") === "true"; //문자열 비교 필요
 
-    if (uid) {
-        // 로그인 상태
-        if (loginLink) loginLink.style.display = "none";
-        if (signupLink) signupLink.style.display = "none";
-        logoutBtn.style.display = "inline";
-        userWelcome.textContent = uid + "님 환영합니다!";
-    } else {
-        // 비로그인 상태
-        if (loginLink) loginLink.style.display = "inline";
-        if (signupLink) signupLink.style.display = "inline";
-        logoutBtn.style.display = "none";
-        userWelcome.textContent = "로그인 해주세요";
-    }
+            const loginLink = document.querySelector('a[href="login.html"]');
+            const signupLink = document.querySelector('a[href="signin.html"]');
+            const logoutBtn = document.getElementById("logoutBtn");
+            const userWelcome = document.getElementById("userWelcome");
 
-    // 로그아웃 버튼 동작
-    logoutBtn.onclick = function () {
-        localStorage.removeItem("uidId"); // 로그인 정보 삭제
-        alert("로그아웃 되었습니다.");
-        location.href = "/login.html"; // 로그인 페이지로 이동
-    };
-};
-</script>
+            if (uid) {
+                if (loginLink) loginLink.style.display = "none";
+                if (signupLink) signupLink.style.display = "none";
+                logoutBtn.style.display = "inline";
+
+                //관리자 여부에 따른 문구 변경
+                userWelcome.textContent = isAdmin
+                    ? `관리자 ${uid}님 환영합니다!`
+                    : `${uid}님 환영합니다!`;
+            } else {
+                if (loginLink) loginLink.style.display = "inline";
+                if (signupLink) signupLink.style.display = "inline";
+                logoutBtn.style.display = "none";
+                userWelcome.textContent = "로그인 해주세요";
+            }
+
+            logoutBtn.onclick = function () {
+                localStorage.removeItem("uidId");
+                localStorage.removeItem("isAdmin");
+                alert("로그아웃 되었습니다.");
+                location.href = "/login.html";
+            };
+        };
+    </script>
 
 
     <!-- ========= body 끝부분에 삽입할 것 ========== -->

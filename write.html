@@ -40,6 +40,14 @@
                 </div>
                 <div class="titleArea">
                     <input id="movieTitleInput" type="text" placeholder="영화 제목을 입력해주세요." />
+                    <div id="ratingInput">
+                        <span id="checkFont">별점을 선택해주세요.</span>  
+                        <label><input name="rating" type="radio" value="1"/>1점</label>
+                        <label><input name="rating" type="radio" value="2"/>2점</label>
+                        <label><input name="rating" type="radio" value="3"/>3점</label>
+                        <label><input name="rating" type="radio" value="4"/>4점</label>
+                        <label><input name="rating" type="radio" value="5"/>5점</label>
+                    </div>
                     <select id="isSpoilerInput">
                         <option value="" disabled selected>스포일러 여부</option>
                         <option value="spoO">스포일러 O</option>
@@ -51,14 +59,7 @@
                 <textarea id="summernote" ></textarea>
             </div>
             <div id="WriteFooter">
-                <div id="ratingInput">
-                    별점을 선택해주세요.  
-                    <label><input name="rating" type="radio" value="1"/>1점</label>
-                    <label><input name="rating" type="radio" value="2"/>2점</label>
-                    <label><input name="rating" type="radio" value="3"/>3점</label>
-                    <label><input name="rating" type="radio" value="4"/>4점</label>
-                    <label><input name="rating" type="radio" value="5"/>5점</label>
-                </div>
+                
                 <button class="btn1" onclick="back()"><a href="#">[ 뒤로가기 ]</a></button>
                 <button class="btn1" onclick="postWrite()"><a href="list.html">[ 작성 ]</a></button> 
             </div>

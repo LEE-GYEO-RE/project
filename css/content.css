@@ -3,6 +3,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  border: 1px solid red;
 }
 
 a {
@@ -27,7 +28,7 @@ a {
 
 /* 이미지 박스 영역 */
 .image-box {
-  width: 900px;
+  width: 380px;
   height: 500px;
   background-color: gray;
   color: white;
@@ -50,6 +51,10 @@ a {
 }
 
 /* 게시글 내용 영역 */
+.content-box{
+  width: 810px;
+  height: 500px;
+}
 .review-text {
   text-align: left;
   line-height: 1.6;
@@ -74,7 +79,7 @@ a {
 .rate_btn{
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 .actions {
   margin-bottom: 15px;
@@ -101,7 +106,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 .back {
   display: block;

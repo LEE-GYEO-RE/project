@@ -48,9 +48,13 @@ function logins() {
     return;
   }
 
+  //관리자 중복 생성 방지
+    if (isAdmin && userList.some(user => user.isAdmin == true)) {
+        alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
+        return;
+    }
 
 
-  
   //6.
   const role = Master.isAdmin ? "관리자" : "일반 사용자"; //변수에 삼항연산자 넣기 참, 거짓
   alert((Master.name || Master.uid) + "님, " + role + "로 로그인 성공!");

@@ -42,10 +42,17 @@ function userpage() {
     return;
   }
 
+      // 관리자 중복 생성 방지
+    if (isAdmin && userList.some(user => user.isAdmin == true)) {
+        alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
+        return;
+    }
+
+
   const newUser = {
     uid: uid,
     pwd: pwd,
-    isAdmin: isAdmin  // ✅ 체크박스 값 저장
+    isAdmin: isAdmin  //체크박스 값 저장
   };
 
   userList.push(newUser);
@@ -59,7 +66,7 @@ function userpage() {
 
 
 
-  
+
 // 5. 객체를 배열에 저장
 obj.uno = userList.length == 0 ? 1 : userList[userList.length - 1].uno + 1; //자동번호
 userList.push(obj);

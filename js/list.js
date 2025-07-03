@@ -1,39 +1,36 @@
 viewList();
+isLogin();
+drawLogin();
+
 function viewList() {
-    console.log('viewList start');
     const table_content = document.querySelector(".table_content");
     const main_pages = document.querySelector('#main_pages');
-    
     let postList = getPostList();
-    let html = '';
 
-    let uid = new URLSearchParams(location.search).get('uid');
+    let uid = new URLSearchParams(location.search).get('uid'); // querystring: 사용자 id
     let currentPage = new URLSearchParams(location.search).get('pages'); // querystring: 현재 페이지
     if (currentPage == null) currentPage = 1;
     let start = (currentPage-1)*10;
     let end = start+10;
-    let pages = ``;
-
-    if (postList != null) {
-        for (let i=start; i<end && i<postList.length; i++) {
-            html += `<tr>
-                        <td class="list_num">${postList[i].pid}</td>
-                        <td class="list_title"><a href="content.html?pid=${postList[i].pid}&${getUid(uid)}">${postList[i].title} ${spoilerCheck(postList[i].isSpoiler)}</a></td>
-                        <td class="list_movieTitle">${postList[i].movieTitle}</td>
-                        <td class="list_rating">${makeRating(postList[i].rating)}</td>
-                        <td class="list_date">${postList[i].date}</td>
-                    </tr>`
-        }
+    let html = '';
+    for (let i=start; i<end && i<postList.length; i++) {
+        html += `<tr>
+                    <td class="list_num">${postList[i].pid}</td>
+                    <td class="list_title"><a href="content.html?pid=${postList[i].pid}&${getUid(uid)}">${postList[i].title} ${spoilerCheck(postList[i].isSpoiler)}</a></td>
+                    <td class="list_movieTitle">${postList[i].movieTitle}</td>
+                    <td class="list_rating">${makeRating(postList[i].rating)}</td>
+                    <td class="list_date">${postList[i].date}</td>
+                </tr>`
     }
 
     let totalPage = postList[postList.length-1].pid;
+    let pages = '';
     for (let i=1; i<=(totalPage/10)+1; i++) {
         pages += `<a class="page_numbers" href='list.html?pages=${i}&${getUid(uid)}'>${i}</a>`;
     }
 
     table_content.innerHTML = html;
     main_pages.innerHTML = pages;
-    console.log('viewList end');
 } // 게시글 목록 출력
 
 function makeRating(rating) {
@@ -45,7 +42,7 @@ function makeRating(rating) {
             html += '☆';
         }
     }
-
+    
     return html;
 } // 별점에 별 그리기
 
@@ -59,7 +56,6 @@ function spoilerCheck(isSpoiler) {
 } // 스포일러 체크
 
 function deleteList() {
-    const table_content = document.querySelector('.table_content');
     let postList = getPostList();
     let uid = new URLSearchParams(location.search).get('uid');
 
@@ -69,7 +65,6 @@ function deleteList() {
     }
 
     let pid = prompt("삭제할 게시물의 번호를 입력해주세요: ");
-
     for (let i=0; i<postList.length; i++) {
         if (postList[i].pid == pid) {
             postList.splice(i, 1);
@@ -95,16 +90,15 @@ function getPostList() {
 } // postList getter
 
 // 공통 JS (헤더 로그인 구현)
-isLogin();
 function isLogin() {
     const header_content = document.querySelector("#header_content");
     let userList = getUserList();
-    let currentUser = new URLSearchParams(location.search).get('uid');
+    let uid = new URLSearchParams(location.search).get('uid');
     let html = '';
 
-    if (currentUser != null) {
+    if (uid != null) {
         for (let i=0; i<userList.length; i++) {
-            if (userList[i].uid == currentUser) {
+            if (userList[i].uid == uid) {
                 html += `<ul id="header_top">
                             <li><a href="list.html?pages=1">로그아웃</a></li>
                         </ul>
@@ -128,7 +122,6 @@ function getUserList() {
     return userList;
 } // userList getter
 
-drawLogin();
 function drawLogin() {
     let uid = new URLSearchParams(location.search).get('uid');
 

@@ -1,5 +1,5 @@
 viewList();
-isLogin();
+//isLogin();
 drawLogin();
 
 function viewList() {
@@ -91,27 +91,27 @@ function getPostList() {
 } // postList getter
 
 // 공통 JS (헤더 로그인 구현)
-function isLogin() {
-    const header_content = document.querySelector("#header_content");
-    let userList = getUserList();
-    let uid = new URLSearchParams(location.search).get('uid');
-    let html = '';
+// function isLogin() {
+//     const header_content = document.querySelector("#header_content");
+//     let userList = getUserList();
+//     let uid = new URLSearchParams(location.search).get('uid');
+//     let html = '';
 
-    if (uid != null) {
-        for (let i=0; i<userList.length; i++) {
-            if (userList[i].uid == uid) {
-                html += `<ul id="header_top">
-                            <li><a href="list.html?pages=1">로그아웃</a></li>
-                        </ul>
-                        <ul id="header_bottom">
-                            <li>${userList[i].uid}님, 환영합니다</li>
-                        </ul>`;
-            }
-        }
-    } else return;
+//     if (uid != null) {
+//         for (let i=0; i<userList.length; i++) {
+//             if (userList[i].uid == uid) {
+//                 html += `<ul id="header_top">
+//                             <li><a href="list.html?pages=1">로그아웃</a></li>
+//                         </ul>
+//                         <ul id="header_bottom">
+//                             <li>${userList[i].uid}님, 환영합니다</li>
+//                         </ul>`;
+//             }
+//         }
+//     } else return;
 
-    header_content.innerHTML = html;
-} // 로그인 여부 확인, 로그인 시 html 변경 (로그아웃, uid 포함으로)
+//     header_content.innerHTML = html;
+// } // 로그인 여부 확인, 로그인 시 html 변경 (로그아웃, uid 포함으로)
 
 function getUserList() {
     let userList = localStorage.getItem('userList');
@@ -137,7 +137,9 @@ function drawLogin() {
 } // 로그인 체크 후 쿼리스트링 구현
 
 function writeCheck() {
-    uid = new URLSearchParams(location.search).get('uid');
+    // uid = new URLSearchParams(location.search).get('uid');
+
+    const uid = localStorage.getItem('uidId')
     if (uid == null) {
         alert('로그인 후 글쓰기가 가능합니다.');
         return;

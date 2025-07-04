@@ -40,10 +40,7 @@ function getpost() {
         if (obj.pid == selectPid) {
             document.querySelector('#titleInput').value = obj.title
             document.querySelector('#movieTitleInput').value = obj.movieTitle
-            //            document.querySelector('#descInput').value = obj.desc
-            //            document.querySelector('#inSpoilerInput').value = obj.isSpoiler
-            //            document.querySelector('#fileInput').value = obj.file
-            //            document.querySelector('input[name = "rating"]:checked').value = obj.rating
+            document.querySelector('.descInput').value = obj.desc
 
         } // if end
     } // for end
@@ -54,42 +51,88 @@ function detailUpdate() {
 
     const url = new URLSearchParams(location.search);     // url 경로 가져오기
     const selectPid = url.get('pid')
-    let postList = getPosts();
 
 
+    const titleInput = document.querySelector('#titleInput');
+    const movieTitleInput = document.querySelector('#movieTitleInput');
+    const isSpoilerInput = document.querySelector('#isSpoilerInput');
+    const ratingInput = document.querySelector('input[name="rating"]:checked');
+
+    const title=titleInput.value;
+    const movieTitle = movieTitleInput.value;
+    const isSpoiler = isSpoilerInput.value;
+
+    
+    // 별점체크, 스포일러체크 유효성 검사 
+    if(!ratingInput){
+    alert("별점을 선택해 주세요.");
+    return;
+    };
+    if(!isSpoiler){
+    alert("스포일러 여부를 선택해 주세요.")
+    return;
+    }
+
+
+
+    const desc = $('#summernote').summernote('code');
+
+    const rating = ratingInput ? ratingInput.value : '';  // 별점이 value값이면 value값 , value값이 없으면 ''점
+
+    let postList = localStorage.getItem('postList');
+    if( postList == null){ postList = []}
+    else{ postList = JSON.parse( postList);}
+
+
+    // 수정할 게시물 찾기
     for (let i = 0; i < postList.length; i++) {
         const obj = postList[i];
         if (obj.pid == selectPid) {
-            obj.title = document.querySelector('#titleInput').value;
-            obj.movieTitle = document.querySelector('#movieTitleInput').value;
-            obj.desc = document.querySelector('#descInput').value;
-            // obj.isSpoiler = document.querySelector('#isSpoilerInput').value;
-            // // obj.file = document.querySelector('#fileInput').value; 
-            // document.querySelectorAll('input[name="rating"]').forEach(radio => {
-            //     if (radio.value == obj.rating) {
-            //         radio.checked = true;
-            //     }
-            // }); // :checked 는 선택된 항목을 가져오는 것이라 값을 설정하는 용도로는 사용 불가능
-            //     // 값을 반영할 때는 document.querySelectorAll로 모든 input을 순회하며 checked 속성 지정:
-            setPosts(postList);
-            alert('수정완료');
-            location.href = `content.html?pid=${selectPid}`
+            obj.title = title
+            obj.movieTitle = movieTitle
+            obj.desc = desc
+            obj.isSpoiler = isSpoiler
+            obj.rating = rating
+            break;
         }
-    }
+    }    
+
+    localStorage.setItem('postList' , JSON.stringify(postList))
+
+   
+
+    alert('게시물 수정 성공')
+     back();
+
+
+
 }
+
+//     for (let i = 0; i < postList.length; i++) {
+//         const obj = postList[i];
+//         if (obj.pid == selectPid) {
+//             obj.title = document.querySelector('#titleInput').value;
+//             obj.movieTitle = document.querySelector('#movieTitleInput').value;
+//             // obj.desc = document.querySelector('#descInput').value;
+//             // obj.isSpoiler = document.querySelector('#isSpoilerInput').value;
+//             // // obj.file = document.querySelector('#fileInput').value; 
+//             // document.querySelectorAll('input[name="rating"]').forEach(radio => {
+//             //     if (radio.value == obj.rating) {
+//             //         radio.checked = true;
+//             //     }
+//             // }); // :checked 는 선택된 항목을 가져오는 것이라 값을 설정하는 용도로는 사용 불가능
+//             //     // 값을 반영할 때는 document.querySelectorAll로 모든 input을 순회하며 checked 속성 지정:
+//             setPosts(postList);
+//             alert('수정완료');
+//             location.href = `content.html?pid=${selectPid}`
+//         }
+//     }
+// }
 
 function back() {
     const url = new URLSearchParams(location.search);     // url 경로 가져오기
     const selectPid = url.get('pid')
-
-    let postList = getPosts();
-    let uid = localStorage.getItem('uiId');
-    for (let i = 0; i < postList.length; i++) {
-        let post = postList[i];
-        if (post.pid == selectPid && post.uid == uid) {
-            location.href = `content.html?pid=${selectPid}&${getUid(uid)}`
-        }
-    }
+     location.href = `content.html?pid=${selectPid}`
 }
 // 공통 JS (헤더 로그인 구현)
 isLogin();

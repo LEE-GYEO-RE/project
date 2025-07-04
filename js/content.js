@@ -45,13 +45,13 @@ function detailBoard() {
     let userList = getUser();
 
 
-    for (let j = 0; j < userList.length; j++) {
-        const obj1 = userList[j];
-        if (userList[j].uid == selectUid) {
-            document.querySelector('.info-user').innerHTML = obj1.uid
-            break;
-        }
-    }
+    // for (let j = 0; j < userList.length; j++) {
+    //     const obj1 = userList[j];
+    //     if (userList[j].uid == selectUid) {
+    //         document.querySelector('.info-user').innerHTML = obj1.uid
+    //         break;
+    //     }
+    // }
 
     for (let i = 0; i < postList.length; i++) {
         const obj = postList[i];
@@ -62,7 +62,7 @@ function detailBoard() {
             document.querySelector('.rating').innerHTML = makeRating(obj.rating)
             // title , movieTitle , desc , file , isSpoiler , rating , date
             break;
-            
+
         }
     }
 }
@@ -97,13 +97,16 @@ function contentDelete() {
 
 // (2) 수정 이동 함수
 function postsUpdateView() {
+
     const url = new URLSearchParams(location.search);     // url 경로 가져오기
     const selectPid = url.get('pid')                            // 선택한 pid 가져오기
+    // const selectUid = url.get('uid');
 
-    let postList = getPosts();
+    let postList = getPosts();                                                 // localStorage 배열 가져오기
     let userList = getUser();
-    let uid = localStorage.getItem('uidId');
+    let uid = localStorage.getItem('uidId'); // 현재 로그인된 아이디.
 
+    // 1. 게시물 찾기
     for (let i = 0; i < postList.length; i++) {
         let post = postList[i];
         if (post.pid == selectPid && post.uid == uid) { // 현재 보고 있는 게시물 이면서 로그인된 회원 글이면 
@@ -112,6 +115,7 @@ function postsUpdateView() {
             return;
         }
     }
+    alert('내가 쓴글이 아니다.')
 }
 
 // 별점에 별 그리기
@@ -127,7 +131,7 @@ function makeRating(rating) {
     html += '</span>'
 
     return html;
-} 
+}
 // 공통 JS (헤더 로그인 구현)
 isLogin();
 function isLogin() {
@@ -137,7 +141,7 @@ function isLogin() {
     let html = '';
 
     if (currentUser != null) {
-        for (let i=0; i<userList[i].length; i++) {
+        for (let i = 0; i < userList[i].length; i++) {
             if (userList[i].uno == currentUser) {
                 html += `<ul id="header_top">
                             <li><a href="list.html?pages=1">로그아웃</a></li>

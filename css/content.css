@@ -18,11 +18,11 @@ a {
   margin: 0 auto;
   margin-top: 100px;
   width: 1280px;
-  height: 70%;
+
   padding: 20px 20px;
   background-color: white;
   align-items: center;
-  border: 1px solid rgba(139, 139, 139, 0.534);
+
   justify-content: center;
 }
 
@@ -51,8 +51,9 @@ a {
 }
 
 .title {
-  font-size: 45px;
+  font-size: 25px;
   font-weight: bold;
+  max-width: 80%;
 
 }
 
@@ -68,9 +69,7 @@ a {
   /* margin-bottom: 50px; */
   font-size: 25px;
   font-weight: bolder;
-  /* max-width: 850px;
-  max-height: 200px; */
-  display: flex;
+
   text-align: left;       /* 택스트 가로 정렬 */
   overflow: hidden;         /* 넘치는 택스트 숨김 처리 */
   word-break: break-all;    /* 단어 중간 줄바꿈 처리 */

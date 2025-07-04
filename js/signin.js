@@ -14,13 +14,13 @@ function userpage() {
   const uidInput = document.querySelector('#uidInput');
   const pwdInput = document.querySelector('#pwdInput');
   //const isAdminInput = document.querySelector('#isAdminInput');
-  const isAdminInput = document.getElementById("isAdminInput");
+  //const isAdminInput = document.getElementById("isAdminInput");
 
 
   //2. 입력 마크업 객체내 입력값 가져오기
   const uid = uidInput.value;
   const pwd = pwdInput.value;
-  const isAdmin = isAdminInput.checked;
+  //const isAdmin = isAdminInput.checked;
 
   //3. 입력값이 비어있는지 확인.
   if (!uid || !pwd) {
@@ -29,7 +29,7 @@ function userpage() {
   }
 
   //3. 객체화
-  const obj = { uid, pwd, isAdmin };
+  const obj = { uid, pwd };
   // 4. localStorage 에서 배열 가져오기.
   let userList = localStorage.getItem('userList');
   if (userList == null) { userList = [] }
@@ -52,11 +52,11 @@ function userpage() {
   const newUser = {
     uid: uid,
     pwd: pwd,
-    isAdmin: isAdmin  //체크박스 값 저장
+    //isAdmin: isAdmin  //체크박스 값 저장
   };
 
-  userList.push(newUser);
-  localStorage.setItem("userList", JSON.stringify(userList));
+  // userList.push(newUser);
+  // localStorage.setItem("userList", JSON.stringify(userList));
   alert("회원가입이 완료되었습니다!");
   //location.href = "login.html";
 

@@ -31,3 +31,11 @@ function getUserList() {
     }
     return userList;
 } // userList getter
+
+function drawLogin() {
+    let uid = new URLSearchParams(location.search).get('uid');
+    const header_logo = document.querySelector('#header_logo');
+
+    let logo = `<a href="list.html?pages=1&${getUid(uid)}"><img class="logo" src="sample_img/logo.png" />무비존</a>`;
+    header_logo.innerHTML = logo;
+} // 로그인 체크 후 쿼리스트링 구현

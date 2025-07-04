@@ -48,6 +48,12 @@ ul {
     margin-left: 20px;
 } /* 사이트 로고 글자색 및 위치 조정 */
 
+.logo {
+    width: 10%;
+    padding-right: 10px;
+    margin-bottom: 5px;
+} /* 로고 이미지 */
+
 #header_top {
     display: flex;
     justify-content: flex-end;

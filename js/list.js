@@ -4,7 +4,7 @@ drawLogin();
 
 function viewList() {
     const table_content = document.querySelector(".table_content");
-    const main_pages = document.querySelector('#main_pages');
+    const pagination = document.querySelector('.pagination');
     let postList = getPostList();
 
     let uid = new URLSearchParams(location.search).get('uid'); // querystring: 사용자 id
@@ -26,11 +26,11 @@ function viewList() {
     let totalPage = postList[postList.length-1].pid;
     let pages = '';
     for (let i=1; i<=(totalPage/10)+1; i++) {
-        pages += `<a class="page_numbers" href='list.html?pages=${i}&${getUid(uid)}'>${i}</a>`;
+        pages += `<li class="page-item"><a class="page-link" href='list.html?pages=${i}&${getUid(uid)}'>${i}</a></li>`;
     }
 
     table_content.innerHTML = html;
-    main_pages.innerHTML = pages;
+    pagination.innerHTML = pages;
 } // 게시글 목록 출력
 
 function makeRating(rating) {
@@ -55,7 +55,7 @@ function spoilerCheck(isSpoiler) {
     return html;
 } // 스포일러 체크
 
-function deleteList() {
+/* function deleteList() {
     let postList = getPostList();
     let uid = new URLSearchParams(location.search).get('uid');
 
@@ -77,7 +77,7 @@ function deleteList() {
 
     alert('존재하지 않는 페이지 번호입니다.');
     return;
-} // 페이지 번호를 입력받아 삭제 (관리자 전용)
+} // 페이지 번호를 입력받아 삭제 (관리자 전용) */
 
 function getPostList() {
     let postList = localStorage.getItem('postList');
@@ -128,9 +128,8 @@ function drawLogin() {
     const header_logo = document.querySelector('#header_logo');
     const main_buttons = document.querySelector('#main_buttons');
 
-    let logo = `<a href="list.html?pages=1&${getUid(uid)}">무비존</a>`;
-    let buttons = `<button onclick="deleteList()">[ 삭제 ]</button>
-                    <button><a href="write.html?${getUid(uid)}">[ 글쓰기 ]</a></button>`;
+    let logo = `<a href="list.html?pages=1&${getUid(uid)}"><img class="logo" src="sample_img/logo.png" />무비존</a>`;
+    let buttons = `<a href="write.html?${getUid(uid)}" class="btn btn-primary" role="button">글쓰기</a>`;
 
     header_logo.innerHTML = logo;
     main_buttons.innerHTML = buttons;

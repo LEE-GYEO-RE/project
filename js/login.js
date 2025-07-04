@@ -58,7 +58,12 @@ function logins() {
   alert((foundUser.name || foundUser.uid) + "님, " + role + "로 로그인 성공!");
 
   localStorage.setItem("uidId", foundUser.uid);
-  location.href = `/list.html?pages=1&uid=${foundUser.uid}`; //로그인 성공시 리스트(list) 페이지로 이동 + uid 값 전달
-  
+  //if (foundUser.isAdmin) {
+    location.href = `/list.html?pages=1&uid=${foundUser.uid}`; //로그인 성공시 리스트(list) 페이지로 이동 + uid 값 전달
+  //} else {
+  //  location.href = `/admin_list.html`;  //관리자 모드로 회원리스트 확인
+  //}
+
 }
+
 

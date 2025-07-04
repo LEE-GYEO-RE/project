@@ -71,7 +71,7 @@ localStorage.setItem('userList', JSON.stringify(userList));
 // 7. 기타 등등 회원가입 완료 처리
 //console.log(userList);
 //alert('회원가입완료!!!');
-location.href = "login.html"; // 회원가입 성공시 로그인(login) 페이지로 이동
+location.href = "/login.html"; // 회원가입 성공시 로그인(login) 페이지로 이동
 
 }// func end 
 

@@ -22,7 +22,7 @@ a {
   padding: 20px 20px;
   background-color: white;
   align-items: center;
-  border: 3px solid black;
+  border: 1px solid rgba(139, 139, 139, 0.534);
   justify-content: center;
 }
 
@@ -150,4 +150,8 @@ button {
   font-size: 20px;
   cursor: pointer;
 
+}
+.star {
+    color: #f7d001;
+    font-size: 25px;
 }

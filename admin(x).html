@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>회원리스트</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+
+<h2>회원 리스트 (관리자 모드)</h2>  <!--관리자 모드-->
+<div id="userList"></div>  <!--userList-->
+
+<script>
+  const userList = JSON.parse(localStorage.getItem("userList"));  //배열로 변환해 변수 users에 저장.
+  const userListDiv = document.getElementById("userList"); // id가 'userList'인 요소를 찾아서 userListDiv라는 변수에 넣음
+
+  const foundUser = userList.find(u => u.uid == uid);
+  if (!foundUser || !foundUser.isAdmin) {
+    alert("관리자만 접근할 수 있습니다.");
+    location.href = "/login.html";} // 관리자 아니면 로그인 페이지로 이동  
+
+  if (userList.length == 0) {  //회원리스트가 0으로 비어있으면 등록된 회원이 없음으로 출력.
+    userListDiv.textContent = "등록된 회원이 없습니다.";
+  } else {
+    let html = ""; //한번에 모아서 출력.
+    for (let i = 0; i < userList.length; i++) {  // 순서대로 출력
+      html += `아이디: ${userList[i].uid}, 이름: ${userList[i].name}<br>`;
+    }
+    userListDiv.innerHTML = html; //웹페이지로 보이게함.
+  }
+</script>
+
+</body>
+
+</html>

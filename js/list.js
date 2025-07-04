@@ -34,7 +34,7 @@ function viewList() {
 } // 게시글 목록 출력
 
 function makeRating(rating) {
-    let html = '';
+    let html = '<span class="star">';
     for (let i=1; i<6; i++) {
         if (i<=rating) {
             html += '★';
@@ -42,6 +42,7 @@ function makeRating(rating) {
             html += '☆';
         }
     }
+    html += '</span>'
     
     return html;
 } // 별점에 별 그리기

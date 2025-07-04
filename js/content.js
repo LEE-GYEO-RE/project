@@ -71,28 +71,43 @@ function detailBoard() {
 function contentDelete() {
 
     const url = new URLSearchParams(location.search);     // url 경로 가져오기
-    // const selectPid = url.get('pid')                            // 선택한 pid 가져오기
-    const selectUid = url.get('uid');
+    const selectPid = url.get('pid')                            // 선택한 pid 가져오기
+    // const selectUid = url.get('uid');
 
     let postList = getPosts();                                                 // localStorage 배열 가져오기
     let userList = getUser();
+    let uid = localStorage.getItem('uidId'); // 현재 로그인된 아이디.
 
-    for (let j = 0; j < userList.length; j++) {
-        const obj = postList[j];
-        const obj2 = userList[j];
-        if (obj.uid == selectUid) {
-            const confirm = prompt('비밀번호 입력 : ');          // 존재하면 비번 받고, 일치하면 삭제
-            if (confirm == obj2.pwd) {
-                postList.splice(j, 1)
-                setPosts(postList);
-                alert('게시물이 삭제되었습니다.')
-                location.href = `list.html?pages=1&${getUid(obj.uid)}`;                   // 삭제 성공시 list.html 로 이동
-            } else {
-                alert('삭제 실패 : 비밀번호 불일치')
-                return;
-            } // else end
-        } // if end
+    // 1. 게시물 찾기
+    for( let i = 0 ; i < postList.length ; i++) {
+        let post = postList[i];
+        if( post.pid == selectPid && post.uid == uid ){ // 현재 보고 있는 게시물 이면서 로그인된 회원 글이면 
+            // 2. 내가 쓴글인지 확인 
+            alert('게시물이 삭제되었습니다.')
+            postList.splice(i, 1)
+            setPosts(postList);
+            location.href = `list.html?pages=1&${getUid(uid)}`;  
+            return;
+        }
     }
+    alert('내가 쓴글이 아니다.')
+    
+    // for (let j = 0; j < userList.length; j++) {
+    //     const obj = postList[j];
+    //     const obj2 = userList[j];
+    //     if (obj.uid == selectUid) {
+    //         const confirm = prompt('비밀번호 입력 : ');          // 존재하면 비번 받고, 일치하면 삭제
+    //         if (confirm == obj2.pwd) {
+    //             postList.splice(j, 1)
+    //             setPosts(postList);
+    //             alert('게시물이 삭제되었습니다.')
+    //             location.href = `list.html?pages=1&${getUid(obj.uid)}`;                   // 삭제 성공시 list.html 로 이동
+    //         } else {
+    //             alert('삭제 실패 : 비밀번호 불일치')
+    //             return;
+    //         } // else end
+    //     } // if end
+    // }
 }
 
 //     for (let i = 0; i < postList.length; i++) {                  // 배열 내 선택된 게시물 조회
@@ -119,28 +134,30 @@ function postsUpdateView() {
 
     let postList = getPosts();
     let userList = getUser();
-    for (let i = 0; i < postList.length; i++) {
-        const obj = postList[i];
-        if (obj.pid == selectPid) {
-            const confirm = prompt('비밀번호 입력 : ');
-            let isMatched = false;
-            for (let j = 0; j < userList.length; j++) {
-                const obj2 = userList[j];
-                    console.log( obj );
-                    console.log( obj2 );
-                if (confirm == obj2.pwd && obj.uid == obj2.uid) {
-                    isMatched = true;
-                    break;
-                }
-            }
-            if (isMatched) {
-                location.href = `update.html?no=${selectPid}`
-            } else {
-                alert('수정 불가 : 비밀번호 불일치')
-            }return;
-        } // if end
-    } // for end
-} // func end
+    let uid = localStorage.getItem('uidId');
+    // for (let i = 0; i < postList.length; i++) {
+    //     const obj = postList[i];
+    //     if (obj.pid == selectPid) {
+    //         const confirm = prompt('비밀번호 입력 : ');
+    //         let isMatched = false;
+    //         for (let j = 0; j < userList.length; j++) {
+    //             const obj2 = userList[j];
+    //                 console.log( obj );
+    //                 console.log( obj2 );
+    //             if (confirm == obj2.pwd && obj.uid == obj2.uid) {
+    //                 isMatched = true;
+    //                 break;
+    //             }
+    //         }
+        for( let i = 0 ; i < postList.length ; i++) {
+        let post = postList[i];
+        if( post.pid == selectPid && post.uid == uid ){ // 현재 보고 있는 게시물 이면서 로그인된 회원 글이면 
+            // 2. 내가 쓴글인지 확인 
+            location.href = `update.html?no=${selectPid}`;  
+            return;
+        }
+    }
+}
 
 function makeRating(rating) {
     let html = '<span class="star">';

@@ -63,7 +63,7 @@ function detailUpdate() {
                 // 값을 반영할 때는 document.querySelectorAll로 모든 input을 순회하며 checked 속성 지정:
             setPosts(postList);
             alert('수정완료');
-            location.href = `content.html?no=${selectPid}`
+            location.href = `content.html?pid=${selectPid}`
         }
     }
 }

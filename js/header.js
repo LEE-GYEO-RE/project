@@ -2,7 +2,7 @@
 isLogin();
 function isLogin() {
     const header_content = document.querySelector("#header_content");
-    let userList = getuserList();
+    let userList = getUserList();
     let currentUser = new URLSearchParams(location.search).get('uno');
     let html = '';
 

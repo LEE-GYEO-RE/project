@@ -153,7 +153,7 @@ function postsUpdateView() {
         let post = postList[i];
         if( post.pid == selectPid && post.uid == uid ){ // 현재 보고 있는 게시물 이면서 로그인된 회원 글이면 
             // 2. 내가 쓴글인지 확인 
-            location.href = `update.html?no=${selectPid}`;  
+            location.href = `update.html?pid=${selectPid}`;  
             return;
         }
     }

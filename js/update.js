@@ -15,7 +15,13 @@ function getPosts() {
 function setPosts(postList) {
     localStorage.setItem('postList', JSON.stringify(postList))
 }
+function getUid(uid) {
+    // 함수에 let uid = new URLSearchParams(location.search).get('uid'); 로 uid 값을 가져온 다음, 매개변수에 uid를 넣어 호출할 것
 
+    if (uid == null)
+        return null;
+    else return `uid=${uid}`;
+}
 
 // (1) 수정시 기존 데이터 불러오는 함수
 getpost();
@@ -71,7 +77,7 @@ function detailUpdate() {
 function back() {
     if (!confirm("뒤로 가겠습니까?")) {
     } else {
-        location.href = `content.html?no=${selectPid}`
+        location.href = `content.html?pid=1${selectPid}uid=${uid}`
     }
 }
 // // 공통 JS (헤더 로그인 구현)

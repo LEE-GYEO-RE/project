@@ -42,24 +42,25 @@ function userpage() {
     return;
   }
 
+      // 관리자 중복 생성 방지
+    if (isAdmin && userList.some(user => user.isAdmin == true)) {
+        alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
+        return;
+    }
+
+
   const newUser = {
     uid: uid,
     pwd: pwd,
-    isAdmin: isAdmin  // ✅ 체크박스 값 저장
+    isAdmin: isAdmin  //체크박스 값 저장
   };
 
   userList.push(newUser);
   localStorage.setItem("userList", JSON.stringify(userList));
   alert("회원가입이 완료되었습니다!");
-  location.href = "login.html";
+  //location.href = "login.html";
 
 
-
-
-
-
-
-  
 // 5. 객체를 배열에 저장
 obj.uno = userList.length == 0 ? 1 : userList[userList.length - 1].uno + 1; //자동번호
 userList.push(obj);
@@ -70,7 +71,7 @@ localStorage.setItem('userList', JSON.stringify(userList));
 // 7. 기타 등등 회원가입 완료 처리
 //console.log(userList);
 //alert('회원가입완료!!!');
-location.href = `/list.html?pages=1&uid=${Master.uid}`; // 회원가입 성공시 목록(list) 페이지로 이동
+location.href = "/login.html"; // 회원가입 성공시 로그인(login) 페이지로 이동
 
 }// func end 
 

@@ -59,7 +59,7 @@ function detailBoard() {
             document.querySelector('.title').innerHTML = obj.title                  // 선택된 게시물 번호와 일치하면 내용 출력
             document.querySelector('.review-text').innerHTML = obj.desc      // content.html 의 클래스명 가진 마크업 사이에 찾은 obj.~~` 넣어서 출력
             // document.querySelector('.info-user').innerHTML = obj.uid     // obj에서 user 넣어야 빼오기 가능
-            document.querySelector('.rating').innerHTML = obj.rating
+            document.querySelector('.rating').innerHTML = makeRating(obj.rating)
             // title , movieTitle , desc , file , isSpoiler , rating , date
             break;
         }
@@ -139,6 +139,5 @@ function makeRating(rating) {
             html += '☆';
         }
     }
-
     return html;
 } // 별점에 별 그리기

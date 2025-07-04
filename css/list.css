@@ -29,12 +29,16 @@ th {
     text-align: center;
 } /* 테이블 제목 정렬 */
 
-#main_table {
+/* #main_table {
     display: flex;
     justify-content: center;
 } /* 테이블 정렬 */
 
-.list_table {
+/* .table_content {
+    height: 500px;
+} */
+
+/* .list_table {
     width: 1000px;
     text-align: center;
 } /* 테이블 크기 설정 및 글씨 정렬 */
@@ -61,6 +65,10 @@ th {
     width: 120px;
     text-align: center;
 } /* 테이블 '작성일자' */
+
+.spoiler {
+    color: rgb(196, 33, 33);
+}
 
 /* ======================= 메인 (기능 목록) ======================== */
 /* button {

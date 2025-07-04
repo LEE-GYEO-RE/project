@@ -49,7 +49,7 @@ function makeRating(rating) {
 function spoilerCheck(isSpoiler) {
     let html = '';
     if (isSpoiler == 'spoO') {
-        html += '[스포일러 주의]';
+        html += '<span class="spoiler">[스포일러 주의]</span>';
     }
 
     return html;

@@ -130,11 +130,21 @@ function drawLogin() {
     const main_buttons = document.querySelector('#main_buttons');
 
     let logo = `<a href="list.html?pages=1&${getUid(uid)}"><img class="logo" src="sample_img/logo.png" />무비존</a>`;
-    let buttons = `<a href="write.html?${getUid(uid)}" class="btn btn-primary" role="button">글쓰기</a>`;
+    let buttons = `<button onclick="writeCheck()" class="btn btn-primary">글쓰기</button>`;
 
     header_logo.innerHTML = logo;
     main_buttons.innerHTML = buttons;
 } // 로그인 체크 후 쿼리스트링 구현
+
+function writeCheck() {
+    uid = new URLSearchParams(location.search).get('uid');
+    if (uid == null) {
+        alert('로그인 후 글쓰기가 가능합니다.');
+        return;
+    } else {
+        location.href = `/write.html?uid=${uid}`;
+    }
+}
 
 function getUid(uid) {
     // 함수에 let uid = new URLSearchParams(location.search).get('uid'); 로 uid 값을 가져온 다음, 매개변수에 uid를 넣어 호출할 것

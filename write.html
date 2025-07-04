@@ -43,11 +43,11 @@
                     <input id="movieTitleInput" type="text" placeholder="영화 제목을 입력해주세요." />
                     <div id="ratingInput">
                         <span id="checkFont">별점을 선택해주세요.</span>  
-                        <label><input name="rating" type="radio" value="1"/>1점</label>
-                        <label><input name="rating" type="radio" value="2"/>2점</label>
-                        <label><input name="rating" type="radio" value="3"/>3점</label>
-                        <label><input name="rating" type="radio" value="4"/>4점</label>
-                        <label><input name="rating" type="radio" value="5"/>5점</label>
+                        <label><input name="rating" type="radio" value="1"/><span>1</span></label>
+                        <label><input name="rating" type="radio" value="2"/><span>2</span></label>
+                        <label><input name="rating" type="radio" value="3"/><span>3</span></label>
+                        <label><input name="rating" type="radio" value="4"/><span>4</span></label>
+                        <label><input name="rating" type="radio" value="5"/><span>5</span></label>
                     </div>
                     <select id="isSpoilerInput">
                         <option value="" disabled selected>스포일러 여부</option>
@@ -94,15 +94,6 @@
                 <button class="btn btn-primary" onclick="postWrite()">작성</button>
             </div>
         </div>
-
-        <!-- ========= body 끝부분에 삽입할 것 ========== -->
-        <div id="footer"> <!-- 푸터 -->
-            <div id="footer_wrap"> <!-- 푸터 wrap -->
-            </div> <!-- 푸터 wrap 끝 -->
-        </div> <!-- 푸터 끝 -->
-        <!-- =========================================== -->
-
-
 
         <!-- 썸머노트 꾸미기 -->
         <script>

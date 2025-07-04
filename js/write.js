@@ -26,7 +26,16 @@ function postWrite(){
     const movieTitle = movieTitleInput.value;
     const isSpoiler = isSpoilerInput.value;
 
-    
+    // 별점체크, 스포일러체크 유효성 검사 
+    if(!ratingInput){
+    alert("별점을 선택해 주세요.");
+    return;
+    };
+    if(!isSpoiler){
+    alert("스포일러 여부를 선택해 주세요.")
+    return;
+    }
+
 
 
     const desc = $('#summernote').summernote('code');
@@ -47,11 +56,11 @@ function postWrite(){
     if( postList == null){ postList = []}
     else{ postList = JSON.parse( postList);}
     
-
+  
     obj.pid = postList.length == 0 ? 1 : postList[postList.length-1].pid+1
     postList.push( obj );
-
-
+    
+    
     // 작성 후 리셋 
     titleInput.value='';
     movieTitleInput.value='';
@@ -65,13 +74,6 @@ function postWrite(){
 
     location.href='list.html'
     alert('게시물 작성 성공')
+    
 
 }
-
-
-// function back(){
-//     if(!confirm("뒤로 가겠습니까?")){
-//     }else{
-//         location.href = 'list.html';
-//     }
-// }

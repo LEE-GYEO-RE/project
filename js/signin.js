@@ -43,10 +43,10 @@ function userpage() {
   }
 
       // 관리자 중복 생성 방지
-    if (isAdmin && userList.some(user => user.isAdmin == true)) {
-        alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
-        return;
-    }
+    //if (isAdmin && userList.some(user => user.isAdmin == true)) {
+    //    alert("이미 관리자 계정이 존재합니다. 일반 계정으로 가입해주세요.");
+    //    return;
+    //}
 
 
   const newUser = {

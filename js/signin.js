@@ -79,7 +79,7 @@ location.href = "/login.html"; // 회원가입 성공시 로그인(login) 페이
 isLogin();
 function isLogin() {
     const header_content = document.querySelector("#header_content");
-    let userList = getuserList();
+    let userList = getUserList();
     let currentUser = new URLSearchParams(location.search).get('uno');
     let html = '';
 

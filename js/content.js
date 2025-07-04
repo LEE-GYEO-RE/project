@@ -29,8 +29,8 @@ function detailBoard() {
         if (postList[i].pid == selectPid) {
             document.querySelector('.title').innerHTML = obj.title                  // 선택된 게시물 번호와 일치하면 내용 출력
             document.querySelector('.review-text').innerHTML = obj.desc      // content.html 의 클래스명 가진 마크업 사이에 찾은 obj.~~` 넣어서 출력
-            document.querySelector('.info-user').innerHTML = obj.     // obj에서 user 넣어야 빼오기 가능
-            document.querySelector('.info-rate').innerHTML = obj.rating
+            document.querySelector('.info-user').innerHTML = obj.uid     // obj에서 user 넣어야 빼오기 가능
+            document.querySelector('.rating').innerHTML = obj.rating
             // title , movieTitle , desc , file , isSpoiler , rating , date
         }
     }
@@ -51,7 +51,7 @@ function contentDelete() {
     const confirm = prompt('비밀번호 입력 : ');          // 존재하면 비번 받고, 일치하면 삭제
     if (confirm == obj.pwd) {
         postList.splice(i, 1)
-        setPosts();
+        setPosts(postList);
         alert('게시물이 삭제되었습니다.')
         location.href = 'list.html';                   // 삭제 성공시 list.html 로 이동
     } else {
@@ -81,3 +81,16 @@ function postsUpdateView() {
 } // if end
 //     } // for end
 // } // func end
+
+function makeRating(rating) {
+    let html = '';
+    for (let i=1; i<6; i++) {
+        if (i<=rating) {
+            html += '★';
+        } else {
+            html += '☆';
+        }
+    }
+    
+    return html;
+} // 별점에 별 그리기

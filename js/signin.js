@@ -58,13 +58,7 @@ function userpage() {
   userList.push(newUser);
   localStorage.setItem("userList", JSON.stringify(userList));
   alert("회원가입이 완료되었습니다!");
-  location.href = "login.html";
-
-
-
-
-
-
+  //location.href = "login.html";
 
 
 // 5. 객체를 배열에 저장
@@ -77,7 +71,7 @@ localStorage.setItem('userList', JSON.stringify(userList));
 // 7. 기타 등등 회원가입 완료 처리
 //console.log(userList);
 //alert('회원가입완료!!!');
-location.href = `/list.html?pages=1&uid=${Master.uid}`; // 회원가입 성공시 목록(list) 페이지로 이동
+location.href = "login.html"; // 회원가입 성공시 로그인(login) 페이지로 이동
 
 }// func end 
 

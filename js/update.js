@@ -108,26 +108,6 @@ function detailUpdate() {
 
 }
 
-//     for (let i = 0; i < postList.length; i++) {
-//         const obj = postList[i];
-//         if (obj.pid == selectPid) {
-//             obj.title = document.querySelector('#titleInput').value;
-//             obj.movieTitle = document.querySelector('#movieTitleInput').value;
-//             // obj.desc = document.querySelector('#descInput').value;
-//             // obj.isSpoiler = document.querySelector('#isSpoilerInput').value;
-//             // // obj.file = document.querySelector('#fileInput').value; 
-//             // document.querySelectorAll('input[name="rating"]').forEach(radio => {
-//             //     if (radio.value == obj.rating) {
-//             //         radio.checked = true;
-//             //     }
-//             // }); // :checked 는 선택된 항목을 가져오는 것이라 값을 설정하는 용도로는 사용 불가능
-//             //     // 값을 반영할 때는 document.querySelectorAll로 모든 input을 순회하며 checked 속성 지정:
-//             setPosts(postList);
-//             alert('수정완료');
-//             location.href = `content.html?pid=${selectPid}`
-//         }
-//     }
-// }
 
 function back() {
     const url = new URLSearchParams(location.search);     // url 경로 가져오기

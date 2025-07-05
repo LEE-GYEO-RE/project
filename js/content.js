@@ -45,14 +45,6 @@ function detailBoard() {
     let userList = getUser();
 
 
-    // for (let j = 0; j < userList.length; j++) {
-    //     const obj1 = userList[j];
-    //     if (userList[j].uid == selectUid) {
-    //         document.querySelector('.info-user').innerHTML = obj1.uid
-    //         break;
-    //     }
-    // }
-
     for (let i = 0; i < postList.length; i++) {
         const obj = postList[i];
         if (postList[i].pid == selectPid) {
